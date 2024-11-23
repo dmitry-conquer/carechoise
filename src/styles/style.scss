@@ -2,6 +2,7 @@
 
 @import "normalize";
 @import "helpers";
+@import "prose";
 
 $xl: 1200px;
 $lg: 992px;
@@ -23,31 +24,24 @@ body {
   font-size: 16px;
   color: var(--gray-light);
   max-width: 100%;
-
   &.menu-is-open {
     overflow: hidden;
   }
 }
-
 .wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100%;
   overflow: hidden;
 }
-
 .main-title {
 }
-
 .section-title {
 }
-
 .sub-title {
 }
-
 .base-text {
 }
-
 .primary-button {
   padding: 23px 55px;
   border-radius: 34px;
@@ -67,8 +61,8 @@ body {
     }
   }
 }
-
 .gradient-button {
 }
 
 @import "header";
+@import "footer";

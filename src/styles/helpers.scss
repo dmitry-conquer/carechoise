@@ -18,5 +18,5 @@
   }
 }
 @mixin clamp($property, $max, $min) {
-  #{$property}: clamp(#{$min}px, #{$max / 1400 * 100}vw, #{$max}px) !important;
+  #{$property}: clamp(#{$min}px, #{$max / 1400 * 100}vw, #{$max}px);
 }

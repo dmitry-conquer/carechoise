@@ -9,7 +9,18 @@
   <body>
     <div class="wrapper">
       {{> header}}
-      <main style="height: 200vh;"></main>
+      <div class="prose">
+        <h1>Заголовок 1</h1>
+        <p>Це текстовий абзац. <a href="#">Ось посилання</a>.</p>
+        <h2>Заголовок 2</h2>
+        <ul>
+          <li>Елемент списку</li>
+          <li>Ще один елемент</li>
+        </ul>
+        <blockquote>Це цитата.</blockquote>
+        <pre><code>const foo = "bar";</code></pre>
+      </div>
+      <main></main>
       {{> footer}}
     </div>
     <script type="module" src="../src/scripts/main.ts"></script>
