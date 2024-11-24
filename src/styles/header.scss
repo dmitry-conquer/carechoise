@@ -1,6 +1,6 @@
 .header {
-  @include clamp("padding-top", 32, 17);
-  @include clamp("padding-bottom", 32, 17);
+  @include clamp("padding-top", 17, 32);
+  @include clamp("padding-bottom", 17, 32);
   position: relative;
 
   &__container {
@@ -13,7 +13,7 @@
   }
 
   &__logo {
-    @include clamp("max-width", 332, 169);
+    @include clamp("max-width", 168, 332);
     margin-right: auto;
   }
 
@@ -27,6 +27,7 @@
     column-gap: 30px;
     transition: all 0.3s ease;
     @media (max-width: ($lg)) {
+      z-index: 999;
       position: absolute;
       left: 100%;
       top: 100%;

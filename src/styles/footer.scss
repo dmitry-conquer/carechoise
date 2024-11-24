@@ -1,17 +1,18 @@
 .footer {
   margin-top: 90px;
   background-color: var(--secondary);
-  @include clamp("padding-top", 114, 60);
-  @include clamp("padding-bottom", 83, 60);
+  @include clamp("padding-top", 60, 113);
+  @include clamp("padding-bottom", 60, 83);
+
   &__container {
     max-width: 1112px;
     margin: 0 auto;
     padding: 0 20px;
   }
+
   &__main {
-    @include clamp("margin-bottom", 40, 23);
+    @include clamp("margin-bottom", 23, 40);
     display: flex;
-    justify-content: space-between;
     column-gap: 30px;
     align-items: center;
     row-gap: 23px;
@@ -25,10 +26,12 @@
       align-items: flex-start;
     }
   }
+
   &__socials {
     display: flex;
     column-gap: 28px;
   }
+
   &__social-link {
     flex-shrink: 0;
     transition: opacity 0.3s ease;
@@ -38,6 +41,7 @@
       }
     }
   }
+
   &__social-image {
     width: 26px;
     height: 26px;
@@ -46,14 +50,16 @@
       height: 23px;
     }
   }
+
   &__logo {
     max-width: 100%;
   }
+
   &__email {
     display: flex;
     column-gap: 24px;
     align-items: center;
-    @include clamp("font-size", 23, 20);
+    @include clamp("font-size", 20, 23);
     transition: color 0.3s ease;
     color: #fff;
     @media (any-hover: hover) {
@@ -62,14 +68,17 @@
       }
     }
   }
+
   &__email-image {
   }
+
   &__nav {
     margin-bottom: 16px;
     @media (max-width: ($md)) {
       margin-bottom: 40px;
     }
   }
+
   &__nav-list {
     display: flex;
     flex-wrap: wrap;
@@ -79,8 +88,10 @@
       justify-content: flex-start;
     }
   }
+
   &__nav-item {
   }
+
   &__nav-link {
     font-size: 17px;
     color: #fff;
@@ -94,12 +105,14 @@
       font-size: 16px;
     }
   }
+
   &__links {
     margin-bottom: 10px;
     @media (max-width: ($md)) {
       margin-bottom: 30px;
     }
   }
+
   &__links-list {
     display: flex;
     justify-content: center;
@@ -109,9 +122,11 @@
       justify-content: flex-start;
     }
   }
+
   &__links-item {
     &:not(:last-child) {
       position: relative;
+
       &::after {
         content: "|";
         color: var(--primary);
@@ -123,9 +138,11 @@
       }
     }
   }
+
   &__links-link {
     font-size: 20px;
     transition: color 0.3s ease;
+    color: #fff;
     @media (any-hover: hover) {
       &:hover {
         color: var(--primary);
@@ -134,13 +151,14 @@
     @media (max-width: ($md)) {
       font-size: 16px;
     }
-    color: #fff;
   }
+
   &__copyright {
     font-family: "Montserrat", sans-serif;
     text-align: center;
-    @include clamp('font-size', 17, 16);
+    @include clamp("font-size", 16, 17);
     color: #fff;
+
     a {
       transition: color 0.3s ease;
       @media (any-hover: hover) {

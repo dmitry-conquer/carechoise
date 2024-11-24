@@ -25,9 +25,8 @@
   $remValue: ($value / 16);
   @return $remValue;
 }
-
-@mixin ada($prop, $minValue, $maxValue, $minWidth, $maxWidth) {
-  $slope: ($maxValue - $minValue) / ($maxWidth - $minWidth);
-  $yAxisIntersection: -$minWidth * $slope + $minValue;
-  #{$prop}: clamp(#{$minValue}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{$maxValue}rem);
+@mixin clamp($prop, $minValue, $maxValue, $minWidth: 375, $maxWidth: 1400) {
+  $slope: (rem($maxValue) - rem($minValue)) / (rem($maxWidth) - rem($minWidth));
+  $yAxisIntersection: rem(-$minWidth) * $slope + rem($minValue);
+  #{$prop}: clamp(#{rem($minValue)}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{rem($maxValue)}rem);
 }
