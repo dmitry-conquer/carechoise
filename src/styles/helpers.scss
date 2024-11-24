@@ -20,3 +20,14 @@
 @mixin clamp($property, $max, $min) {
   #{$property}: clamp(#{$min}px, #{$max / 1400 * 100}vw, #{$max}px);
 }
+
+@function rem($value) {
+  $remValue: ($value / 16);
+  @return $remValue;
+}
+
+@mixin ada($prop, $minValue, $maxValue, $minWidth, $maxWidth) {
+  $slope: ($maxValue - $minValue) / ($maxWidth - $minWidth);
+  $yAxisIntersection: -$minWidth * $slope + $minValue;
+  #{$prop}: clamp(#{$minValue}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{$maxValue}rem);
+}

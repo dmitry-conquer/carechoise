@@ -6,7 +6,7 @@
   &__container {
     max-width: 1112px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 20px;
   }
   &__main {
     @include clamp("margin-bottom", 40, 23);
