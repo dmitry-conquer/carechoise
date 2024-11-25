@@ -1,5 +1,5 @@
 .footer {
-  margin-top: 90px;
+  @include clamp('margin-top', 20, 50);
   background-color: var(--secondary);
   @include clamp("padding-top", 60, 113);
   @include clamp("padding-bottom", 60, 83);

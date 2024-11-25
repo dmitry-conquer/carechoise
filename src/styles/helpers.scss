@@ -21,12 +21,17 @@
   #{$property}: clamp(#{$min}px, #{$max / 1400 * 100}vw, #{$max}px);
 }
 
-@function rem($value) {
+@function toRem($value) {
   $remValue: ($value / 16);
   @return $remValue;
 }
+@function rem($value) {
+  $remValue: ($value / 16) rem;
+  @return $remValue;
+}
+
 @mixin clamp($prop, $minValue, $maxValue, $minWidth: 375, $maxWidth: 1400) {
-  $slope: (rem($maxValue) - rem($minValue)) / (rem($maxWidth) - rem($minWidth));
-  $yAxisIntersection: rem(-$minWidth) * $slope + rem($minValue);
-  #{$prop}: clamp(#{rem($minValue)}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{rem($maxValue)}rem);
+  $slope: (toRem($maxValue) - toRem($minValue)) / (toRem($maxWidth) - toRem($minWidth));
+  $yAxisIntersection: toRem(-$minWidth) * $slope + toRem($minValue);
+  #{$prop}: clamp(#{toRem($minValue)}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{toRem($maxValue)}rem);
 }

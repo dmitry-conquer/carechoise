@@ -9,29 +9,126 @@
   <body>
     <div class="wrapper">
       {{> header}}
-      <main>
-        <div class="page-heading main-title">
-          <h1>About</h1>
-        </div>
-        <section class="hero">
-          <div class="hero__container">
-            <div class="hero__image icont">
-              <img src="/public/images/about-hero.png" alt="" title="" />
-            </div>
-            <div class="hero__content base-content base-content_lg">
-              <h2>
-                Your care. <br />
-                Your choice. <br />
-                Our Commitment.
-              </h2>
-              <p>
-                At CareChoice we believe that family caregivers are the backbone of our communities. You dedicate your time and energy to providing the best care for your loved ones, often
-                juggling multiple responsibilities. We’re here to support you every step of the way.
-              </p>
-            </div>
+      <div class="page-content">
+        <main>
+          <div class="page-heading main-title">
+            <h1>About</h1>
           </div>
-        </section>
-      </main>
+          <section class="hero">
+            <div class="hero__container">
+              <div class="hero__image icont">
+                <img src="/public/images/about-hero.png" alt="" title="" />
+              </div>
+              <div class="hero__content column-content column-content_big-title column-content_big-text">
+                <h2>
+                  Your care. <br />
+                  Your choice. <br />
+                  Our Commitment.
+                </h2>
+                <p>
+                  At CareChoice we believe that family caregivers are the backbone of our communities. You dedicate your time and
+                  energy to providing the best care for your loved ones, often juggling multiple responsibilities. We’re here to
+                  support you every step of the way.
+                </p>
+              </div>
+            </div>
+          </section>
+          <section class="rows">
+            <div class="rows__container">
+              <div></div>
+              <div class="rows__item row">
+                <div class="row__image">
+                  <img src="/public/images/aboutrow1.png" alt="" title="" />
+                </div>
+                <div class="row__content column-content column-content_big-text">
+                  <h2>Our Mission</h2>
+                  <p>
+                    Our mission is simple: to empower family caregivers by providing reliable support and resources. We understand
+                    the challenges you face, from navigating Medicaid to finding fair compensation for your invaluable work. At
+                    CareChoice, we prioritize your needs and ensure that you have everything you require to succeed.
+                  </p>
+                </div>
+              </div>
+              <div class="rows__item row">
+                <div class="row__image">
+                  <img src="/public/images/aboutrow2.png" alt="" title="" />
+                </div>
+                <div class="row__content column-content column-content_big-text">
+                  <h2>What We Do</h2>
+                  <p>
+                    We specialize in helping family caregivers enroll in Medicaid’s program while offering better pay and
+                    benefits. Our experienced team is committed to ensuring you receive the support you deserve, without cutting
+                    corners. We pay on time, every time, and our dedicated staff is always available to assist you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="benefits">
+            <div class="benefits__container">
+              <h2 class="benefits__title section-title">
+                The Challenges <br />
+                You Face
+              </h2>
+              <div class="benefits__items">
+                <div class="benefits__item item-benefits">
+                  <div class="item-benefits__header">
+                    <img src="/public/images/svg/enroll.svg" alt="" class="item-benefits__image" />
+                    <h3 class="item-benefits__title">Complex Enrollment</h3>
+                  </div>
+                  <p class="item-benefits__text base-text">Figuring out your state’s Medicaid program can be confusing.</p>
+                </div>
+                <div class="benefits__item item-benefits">
+                  <div class="item-benefits__header">
+                    <img src="/public/images/svg/low-pay.svg" alt="" class="item-benefits__image" />
+                    <h3 class="item-benefits__title">
+                      Low Pay and <br />
+                      Poor Support
+                    </h3>
+                  </div>
+                  <p class="item-benefits__text base-text">Other agencies often fail to recognize your worth.</p>
+                </div>
+                <div class="benefits__item item-benefits">
+                  <div class="item-benefits__header">
+                    <img src="/public/images/svg/chatting.svg" alt="" class="item-benefits__image" />
+                    <h3 class="item-benefits__title">
+                      Inconsistent <br />
+                      Communication
+                    </h3>
+                  </div>
+                  <p class="item-benefits__text base-text">You need reliable support, not unanswered calls.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="simple-cta">
+            <div class="simple-cta__container">
+              <div class="simple-cta__content column-content column-content_gray-title column-content_big-title">
+                <h2>Already with another agency?</h2>
+                <p>No worries! Switching to us is quick and easy, so you can get the help you need without any fuss.</p>
+                <a href="">Transfer Today!</a>
+              </div>
+            </div>
+          </section>
+          <section class="cta">
+            <div class="cta__container">
+              <div class="cta__content column-content column-content_big-title">
+                <h2>
+                  Your care. <br />
+                  Your choice. <br />
+                  Our Commitment.
+                </h2>
+                <p><strong>Already with another agency?</strong></p>
+                <p>No worries! Switching to us is quick and easy, so you can get the help you need without any fuss.</p>
+                <a href="#">Let’s Get Started</a>
+              </div>
+              <div class="cta__image icont">
+                <img src="/public/images/aboutcta.png" alt="" />
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
       {{> footer}}
     </div>
     <script type="module" src="../src/scripts/main.ts"></script>
