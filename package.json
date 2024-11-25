@@ -36,5 +36,10 @@
     "vite": "^5.4.11",
     "vite-join-media-queries": "^0.1.4",
     "vite-plugin-handlebars": "^2.0.0"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.8",
+    "@types/googlemaps": "^3.43.3",
+    "swiper": "^8.4.7"
   }
 }
