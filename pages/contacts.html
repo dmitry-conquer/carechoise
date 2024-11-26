@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts page</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      {{> header}}
+      <div class="page-content page-container">
+        <main>
+          <section class="contacts">
+            <div class="contacts__container">
+              <div data-aos="fade-up" class="contacts__content">
+                <h2>CONTACT US</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                  laborum
+                </p>
+                <a href="mailto:samplemail@email.com" class="mail-icon">samplemail@email.com</a>
+              </div>
+              <div data-aos="fade-up" data-aos-delay="200" class="contacts__form">
+                <div class="contacts__form-script"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="locations">
+            <div class="locations__container">
+              <h2 data-aos="fade-up" class="locations__title sub-title">OUR LOCATIONS</h2>
+              <div class="locations__list">
+                <a href="" data-aos="fade-up" class="locations__item location">
+                  <img src="/public/images/svg/loc.svg" alt="" class="location__icon" />
+                  <address class="location__content">
+                    <h3>Jenkintown, PA</h3>
+                    8101 Washington Lane, Suite 200 Wyncote, PA 19095
+                  </address>
+                </a>
+                <a href="" data-aos="fade-up" data-aos-delay="200" class="locations__item location">
+                  <img src="/public/images/svg/loc.svg" alt="" class="location__icon" />
+                  <address class="location__content">
+                    <h3>Miami, FL</h3>
+                    1380 N.E Miami Gardens Drive Suite #166 Miami, FL 33179
+                  </address>
+                </a>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+      {{> footer}}
+    </div>
+    <script type="module" src="../src/scripts/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+.vbp-header-menu-button__svg {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  transform: scaleX(-1);
+}
+
+.vbp-header-menu-button__svg line {
+  stroke: #192a6b;
+  stroke-dasharray: 100%;
+  stroke-dashoffset: 0%;
+  transition:
+    transform 0.3s,
+    stroke-dashoffset 0.4s;
+  transform-origin: center;
+  stroke-width: 3px;
+}
+
+.vbp-header-menu-button__svg .top {
+  transform: translateY(35%);
+}
+
+.vbp-header-menu-button__svg .middle {
+  transform: scaleX(1);
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+
+.vbp-header-menu-button__svg .bottom {
+  transform: translateY(33%);
+  stroke-dasharray: 100%;
+  stroke-dashoffset: 0%;
+}
+/*** Mode Croix ***/
+body.sidebar-is-open .vbp-header-menu-button__svg .top {
+  transform: rotate(45deg);
+  stroke-linecap: round;
+}
+
+body.sidebar-is-open .vbp-header-menu-button__svg .middle {
+  transform: scaleX(0.1);
+  opacity: 0;
+}
+
+body.sidebar-is-open .vbp-header-menu-button__svg line.bottom {
+  transform: rotate(-45deg);
+  stroke-linecap: round;
+}
+
+body.sidebar-is-open .vbp-header-menu-button__svg .bottom {
+  stroke-dashoffset: 0%;
+}
