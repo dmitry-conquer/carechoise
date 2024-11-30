@@ -1,45 +1,113 @@
-import "../styles/style.scss";
 import { Loader } from "@googlemaps/js-api-loader";
 
-const loader = new Loader({
-  apiKey: "AIzaSyDNBm9IzPPWXQChddi7x6ydLA-AaIk1bks",
-  version: "weekly",
-});
-const NEW_ZEALAND_BOUNDS = {
-  north: -34.36,
-  south: -47.35,
-  west: 166.28,
-  east: -175.81,
+type TypeMarker = {
+  lat: string | number;
+  lng: string | number;
+  url: string;
 };
 
-const initMap = (): void => {
-  let map: google.maps.Map;
-  let markers;
-  loader.importLibrary("maps").then(({ Map }) => {
-    new Map(document.getElementById("map") as HTMLElement, {
-      center: { lat: -36.90443961071846, lng: 174.80091317429236 },
-      restriction: {
-        latLngBounds: NEW_ZEALAND_BOUNDS,
-        strictBounds: true,
+type TypeMapOptions = {
+  el: string;
+  apiKey: string;
+  mapId: string;
+  markerClassName: string;
+  markers: TypeMarker[];
+  geoJsonUrl: string;
+  activeLocations: string[];
+};
+
+export default class Map {
+  private options: TypeMapOptions;
+  private mapSettings: any;
+  private map: any;
+  constructor(options: TypeMapOptions) {
+    this.options = options;
+    this.mapSettings = {
+      zoom: this.getZoom(),
+      center: {
+        lat: 37.8283,
+        lng: -95.5795,
       },
-      zoom: 7,
-      mapId: "4504f8b37365c3d0",
+      mapTypeId: "roadmap",
+      mapId: this.options.mapId,
+      disableDefaultUI: true,
+      gestureHandling: "none",
+      keyboardShortcuts: false,
+      scaleControl: false,
+      backgroundColor: "transparent",
+      scrollwheel: false,
+    };
+  }
+  hasValidProperties(obj: TypeMapOptions) {
+    return Object.values(obj).every(value => value !== null && value !== undefined && value !== "");
+  }
+  public init(): void {
+    if (this.hasValidProperties(this.options)) {
+      this.loadMap();
+      this.addListeners();
+    }
+    return;
+  }
+
+  private getZoom() {
+    let mapZoom;
+    const foo = window.innerWidth;
+    if (foo < 320) {
+      mapZoom = 2;
+    } else if (foo >= 320 && foo < 700) {
+      mapZoom = 3;
+    } else if (foo >= 700 && foo < 1440) {
+      mapZoom = 4;
+    } else if (foo >= 1440) {
+      mapZoom = 5;
+    } else {
+      mapZoom = 4;
+    }
+    return mapZoom;
+  }
+
+  private loadMap() {
+    const loader = new Loader({
+      apiKey: this.options.apiKey,
+      version: "weekly",
     });
-  });
-  // loader.importLibrary("marker").then(({ AdvancedMarkerElement }) => {
-  //   markersList.forEach(m => {
-  //     const marker = new AdvancedMarkerElement({
-  //       map,
-  //       position: { lat: m.position.lat, lng: m.position.lng },
-  //       content: buildContent(m.content),
-  //       title: "TITLE",
-  //     });
-  //   });
-  // });
-};
+    loader.importLibrary("maps").then(({ Map }) => {
+      this.map = new Map(document.getElementById("map"), this.mapSettings);
+      this.map.data.loadGeoJson(this.options.geoJsonUrl);
+      this.map.data.setStyle((feature: any) => {
+        let color = "#F05296";
+        const statesWithBlueColor = this.options.activeLocations;
+        if (statesWithBlueColor.includes(feature.getProperty("STUSPS"))) {
+          color = "#5A308B";
+        }
+        return {
+          fillColor: color,
+          strokeWeight: 1,
+          strokeColor: "#fff",
+          fillOpacity: 1,
+        };
+      });
+    });
+    loader.importLibrary("marker").then(({ AdvancedMarkerElement }) => {
+      const map = this.map;
+      this.options.markers.forEach(marker => {
+        const markerIcon: HTMLAnchorElement = document.createElement("a") as HTMLAnchorElement;
+        markerIcon.className = this.options.markerClassName;
+        markerIcon.href = marker.url;
+        new AdvancedMarkerElement({
+          map,
+          position: { lat: marker.lat, lng: marker.lng },
+          content: markerIcon,
+        });
+      });
+    });
+  }
 
-const app = (): void => {
-  initMap();
-};
-
-document.addEventListener("DOMContentLoaded", app);
+  private addListeners() {
+    const map = this.map;
+    window.addEventListener("resize", () => {
+      const mapZoom = this.getZoom();
+      map.setZoom(mapZoom);
+    });
+  }
+}

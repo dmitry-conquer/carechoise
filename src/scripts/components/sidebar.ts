@@ -2,7 +2,7 @@ type TypeSidebarOptions = {
   buttonId: string;
   sidebarId: string;
 };
-export default class Sidebar {
+export class Sidebar {
   private button: HTMLButtonElement;
   private sidebar: HTMLElement;
   private options: TypeSidebarOptions;

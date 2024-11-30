@@ -8,7 +8,7 @@ export class Header {
   private settings: HeaderOptions;
   private button: HTMLButtonElement;
   private menu: HTMLElement;
-  constructor(options: Partial<HeaderOptions>) {
+  constructor(options?: Partial<HeaderOptions>) {
     this.defaults = {
       buttonId: "open-menu-button",
       menuId: "header-menu",
