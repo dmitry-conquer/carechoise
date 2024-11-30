@@ -38,7 +38,8 @@ export default class Map {
       scrollwheel: false,
     };
   }
-  hasValidProperties(obj: TypeMapOptions) {
+  
+  private hasValidProperties(obj: TypeMapOptions) {
     return Object.values(obj).every(value => value !== null && value !== undefined && value !== "");
   }
   public init(): void {
@@ -49,7 +50,7 @@ export default class Map {
     return;
   }
 
-  private getZoom() {
+  private getZoom(): number {
     let mapZoom;
     const foo = window.innerWidth;
     if (foo < 320) {
@@ -66,7 +67,7 @@ export default class Map {
     return mapZoom;
   }
 
-  private loadMap() {
+  private loadMap(): void {
     const loader = new Loader({
       apiKey: this.options.apiKey,
       version: "weekly",
@@ -103,7 +104,7 @@ export default class Map {
     });
   }
 
-  private addListeners() {
+  private addListeners(): void {
     const map = this.map;
     window.addEventListener("resize", () => {
       const mapZoom = this.getZoom();
