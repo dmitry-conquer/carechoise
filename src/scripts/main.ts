@@ -1,7 +1,7 @@
 import "../styles/style.scss";
 import { ApiService } from "./core/ApiService";
 import { Header } from "./components/header";
-// import { Sliders } from "./components/sliders";
+import { Sliders } from "./components/sliders";
 import { Sidebar } from "./components/sidebar";
 import AOS from "aos";
 import Map from "./components/map";
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   header?.init();
 
   /* Sliders */
-  // Sliders?.init();
+  Sliders?.init();
 
   /* Sidebar */
   const sidebar = new Sidebar({

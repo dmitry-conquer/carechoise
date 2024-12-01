@@ -11,7 +11,7 @@
   }
 
   &__main {
-    @include clamp("margin-bottom", 23, 40);
+    margin-bottom: 40px;
     display: flex;
     column-gap: 30px;
     align-items: center;
@@ -117,7 +117,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    row-gap: 8px;
+    row-gap: 4px;
     @media (max-width: ($md)) {
       justify-content: flex-start;
     }

@@ -23,7 +23,9 @@ $sm: 480px;
   @media (max-width: ($sm)) {
     margin-bottom: 20px;
   }
-
+  &__inner {
+    padding: 0 20px;
+  }
   &__container {
     max-width: 1425px;
     margin: 0 auto;
@@ -70,6 +72,11 @@ $sm: 480px;
       flex: 0 1 auto;
       max-width: 70%;
       margin: 0 auto;
+      img {
+        margin: 0 -30px;
+        max-width: 120%;
+        width: 120%;
+      }
     }
     @media (max-width: ($md)) {
       max-width: 100%;
@@ -85,7 +92,7 @@ $sm: 480px;
     @media (max-width: ($lg)) {
       padding-bottom: 16px;
       padding-top: 0;
-      text-align: center;
+      text-align: left;
       margin: 0 auto;
     }
     @media (max-width: ($md)) {
@@ -120,7 +127,6 @@ $sm: 480px;
     flex-shrink: 0;
     padding-top: 42px;
     position: relative;
-
     &::after {
       content: "";
       position: absolute;
@@ -148,9 +154,13 @@ $sm: 480px;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='19' viewBox='0 0 16 19' fill='none'%3E%3Cpath d='M7.29289 18.7071C7.68342 19.0976 8.31658 19.0976 8.70711 18.7071L15.0711 12.3431C15.4616 11.9526 15.4616 11.3195 15.0711 10.9289C14.6805 10.5384 14.0474 10.5384 13.6569 10.9289L8 16.5858L2.34315 10.9289C1.95262 10.5384 1.31946 10.5384 0.928933 10.9289C0.538408 11.3195 0.538408 11.9526 0.928933 12.3431L7.29289 18.7071ZM7 4.37114e-08L7 18L9 18L9 -4.37114e-08L7 4.37114e-08Z' fill='%23DE4E95'/%3E%3C/svg%3E");
       }
     }
+    @media (max-width: ($md)) {
+      padding-top: 0;
+    }
   }
 
   &__items {
+    padding:  0 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px 16px;
@@ -192,6 +202,7 @@ $sm: 480px;
     font-weight: 600;
     color: var(--gray-dark);
     margin-bottom: 6px;
+    line-height: 1.1;
     @media (max-width: ($md)) {
       margin-bottom: 0;
     }
@@ -221,6 +232,7 @@ $sm: 480px;
   }
 
   &__content {
+    padding: 0 20px;
     flex: 0 1 543px;
     @media (max-width: ($lg)) {
       flex: 0 1 auto;
@@ -233,7 +245,13 @@ $sm: 480px;
     @media (max-width: ($lg)) {
       transform: translateX(0);
     }
-
+    @media (max-width: ($md)) {
+       img {
+        width: 120%;
+        max-width: 120%;
+        margin: 0 -40px;
+       }
+    }
     &::before {
       content: "";
       position: absolute;
@@ -288,7 +306,7 @@ $sm: 480px;
   &__container {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
     text-align: center;
     @media (max-width: ($md)) {
       text-align: left;
@@ -429,7 +447,7 @@ $sm: 480px;
   align-items: center;
 
   &:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
   }
 
   &:nth-child(even) {
@@ -501,6 +519,7 @@ $sm: 480px;
 
   &__content {
     order: 2;
+    padding: 0 20px;
     @media (max-width: ($msm)) {
       order: 1;
     }
@@ -536,7 +555,7 @@ $sm: 480px;
   background-color: var(--yellow);
   border-radius: 26px;
   padding: 37px 27px;
-  @include clamp("font-size", 18, 14);
+  @include clamp("font-size", 14, 18);
   @media (max-width: ($md)) {
     width: 280px;
     padding: 24px 20px;
@@ -1064,7 +1083,7 @@ $sm: 480px;
 
 /* Map */
 .map {
-  @include clamp("padding-top", 60, 90);
+  @include clamp("padding-top", 30, 90);
 
   &__body {
     width: 100%;
@@ -1073,6 +1092,9 @@ $sm: 480px;
   &__title {
     text-align: center;
     margin-bottom: 35px;
+    @media (max-width: ($sm)) {
+       margin-bottom: 15px;
+    }
   }
   &__locations {
     padding: 0 20px;
@@ -1084,7 +1106,7 @@ $sm: 480px;
     max-width: 1300px;
     margin: 0 auto 50px auto;
     @media (max-width: ($md)) {
-       margin-bottom: 20px;
+      margin-bottom: 20px;
     }
   }
   &__link {

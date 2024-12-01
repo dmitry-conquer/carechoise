@@ -30,7 +30,7 @@
   @return $remValue;
 }
 
-@mixin clamp($prop, $minValue, $maxValue, $minWidth: 375, $maxWidth: 1400) {
+@mixin clamp($prop, $minValue, $maxValue, $minWidth: 390, $maxWidth: 1400) {
   $slope: (toRem($maxValue) - toRem($minValue)) / (toRem($maxWidth) - toRem($minWidth));
   $yAxisIntersection: toRem(-$minWidth) * $slope + toRem($minValue);
   #{$prop}: clamp(#{toRem($minValue)}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{toRem($maxValue)}rem);
