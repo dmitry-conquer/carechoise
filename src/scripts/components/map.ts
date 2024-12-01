@@ -1,9 +1,15 @@
 import { Loader } from "@googlemaps/js-api-loader";
 
 type TypeMarker = {
-  lat: string | number;
-  lng: string | number;
-  url: string;
+  link: {
+    title: string;
+    url: string;
+  };
+  location: {
+    address: string;
+    lat: string;
+    lng: string;
+  };
 };
 
 type TypeMapOptions = {
@@ -13,7 +19,7 @@ type TypeMapOptions = {
   markerClassName: string;
   markers: TypeMarker[];
   geoJsonUrl: string;
-  activeLocations: string[];
+  activeLocations: string;
 };
 
 export default class Map {
@@ -38,16 +44,17 @@ export default class Map {
       scrollwheel: false,
     };
   }
-  
+
   private hasValidProperties(obj: TypeMapOptions) {
     return Object.values(obj).every(value => value !== null && value !== undefined && value !== "");
   }
   public init(): void {
-    if (this.hasValidProperties(this.options)) {
-      this.loadMap();
-      this.addListeners();
+    if (!this.hasValidProperties(this.options)) {
+      console.warn("Critical data for Google Maps is missing");
+      return;
     }
-    return;
+    this.loadMap();
+    this.addListeners();
   }
 
   private getZoom(): number {
@@ -67,6 +74,11 @@ export default class Map {
     return mapZoom;
   }
 
+  private splitString(string: string): string[] {
+    const array = string.replace(/\s/g, "").split(",");
+    return array;
+  }
+
   private loadMap(): void {
     const loader = new Loader({
       apiKey: this.options.apiKey,
@@ -77,7 +89,7 @@ export default class Map {
       this.map.data.loadGeoJson(this.options.geoJsonUrl);
       this.map.data.setStyle((feature: any) => {
         let color = "#F05296";
-        const statesWithBlueColor = this.options.activeLocations;
+        const statesWithBlueColor = this.splitString(this.options.activeLocations);
         if (statesWithBlueColor.includes(feature.getProperty("STUSPS"))) {
           color = "#5A308B";
         }
@@ -94,10 +106,11 @@ export default class Map {
       this.options.markers.forEach(marker => {
         const markerIcon: HTMLAnchorElement = document.createElement("a") as HTMLAnchorElement;
         markerIcon.className = this.options.markerClassName;
-        markerIcon.href = marker.url;
+        markerIcon.href = marker.link.url;
+        markerIcon.title = marker.link.title;
         new AdvancedMarkerElement({
           map,
-          position: { lat: marker.lat, lng: marker.lng },
+          position: { lat: marker.location.lat, lng: marker.location.lng },
           content: markerIcon,
         });
       });
@@ -105,10 +118,9 @@ export default class Map {
   }
 
   private addListeners(): void {
-    const map = this.map;
     window.addEventListener("resize", () => {
       const mapZoom = this.getZoom();
-      map.setZoom(mapZoom);
+      this.map.setZoom(mapZoom);
     });
   }
 }

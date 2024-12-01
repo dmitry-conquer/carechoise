@@ -1,4 +1,5 @@
 import "../styles/style.scss";
+import { ApiService } from "./core/ApiService";
 import { Header } from "./components/header";
 // import { Sliders } from "./components/sliders";
 import { Sidebar } from "./components/sidebar";
@@ -27,17 +28,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* Map */
-  const map = new Map({
-    el: "map",
-    apiKey: "AIzaSyBarQT_vJuw5uJhG66aCYYsjSjTXOq8th0",
-    mapId: "3ee05f8926fee9b3",
-    markerClassName: "map-marker",
-    markers: [
-      { lat: 40.084206193952376, lng: -75.1407551317014, url: "https://mediacomponents.com/" },
-      { lat: 25.944275682078526, lng: -80.17338424561383, url: "https://mediacomponents.com/" },
-    ],
-    geoJsonUrl: "/coords.json",
-    activeLocations: ["PA", "FL"],
-  });
-  map.init();
+
+  if (document.getElementById("map")) {
+    const googleMap = async () => {
+      //@ts-ignore
+      const response = await ApiService.get(`${ajax_obj.ajax_url}?action=get_map_data`);
+      if (response.success) {
+        const acfOptions = response.data;
+        const map = new Map({
+          el: "map",
+          apiKey: acfOptions.gmapApiKey,
+          mapId: acfOptions.gmapId,
+          markerClassName: "map-marker",
+          markers: acfOptions.gmapMarkers,
+          geoJsonUrl: acfOptions.gmapCoords,
+          activeLocations: acfOptions.gmapHighlightedAreas,
+        });
+        map.init();
+      }
+    };
+    googleMap();
+  }
 });
