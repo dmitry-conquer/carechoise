@@ -843,7 +843,7 @@ $sm: 480px;
   align-items: flex-start;
   position: relative;
 
-  @include clamp("padding-top", 20, 40);
+  @include clamp("padding-top", 0, 40);
   @media (max-width: ($lg)) {
     grid-template-columns: calc(100% - 40px);
   }
@@ -870,9 +870,10 @@ $sm: 480px;
   padding: 52px 30px 50px 45px;
   position: relative;
   transition: transform 0.3s ease;
+  z-index: 10;
   @media (max-width: ($lg)) {
     position: absolute;
-    top: 30px;
+    top: 0;
     right: -20px;
     background-color: #f9e8d4;
     width: 280px;
