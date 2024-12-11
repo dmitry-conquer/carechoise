@@ -292,8 +292,8 @@ $sm: 480px;
     text-align: center;
     background-color: var(--yellow);
     border-radius: 37px;
-    @include clamp("padding-top", 60, 90);
-    @include clamp("padding-bottom", 60, 90);
+    @include clamp("padding-top", 48, 90);
+    @include clamp("padding-bottom", 48, 90);
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -875,6 +875,7 @@ $sm: 480px;
     position: absolute;
     top: 0;
     right: -20px;
+    height: 100%;
     background-color: #f9e8d4;
     width: 280px;
     transform: translateX(calc(100% - 40px));
