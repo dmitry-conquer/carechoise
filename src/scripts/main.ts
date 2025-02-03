@@ -5,6 +5,7 @@ import { Sliders } from "./components/sliders";
 import { Sidebar } from "./components/sidebar";
 import AOS from "aos";
 import Map from "./components/map";
+import InitModals from "./components/modal";
 
 document.addEventListener("DOMContentLoaded", () => {
   /* Header */
@@ -13,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Sliders */
   Sliders?.init();
+
+  InitModals();
 
   /* Sidebar */
   const sidebar = new Sidebar({
