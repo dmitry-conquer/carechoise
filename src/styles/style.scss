@@ -978,7 +978,7 @@ $sm: 480px;
       padding-top: 0;
     }
 
-    h2 {
+    h1 {
       font-weight: 700;
       @include clamp("font-size", 25, 43);
       background: linear-gradient(330deg, rgba(89, 47, 138, 1) 0%, rgba(255, 86, 151, 1) 100%);
