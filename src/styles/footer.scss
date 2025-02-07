@@ -22,9 +22,6 @@
       flex-direction: column;
       justify-content: stretch;
     }
-    @media (max-width: ($md)) {
-      align-items: flex-start;
-    }
   }
 
   &__socials {
@@ -70,6 +67,7 @@
   }
 
   &__email-image {
+    width: 25px;
   }
 
   &__nav {
@@ -84,9 +82,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px 40px;
-    @media (max-width: ($md)) {
-      justify-content: flex-start;
-    }
   }
 
   &__nav-item {
@@ -118,9 +113,6 @@
     justify-content: center;
     flex-wrap: wrap;
     row-gap: 4px;
-    @media (max-width: ($md)) {
-      justify-content: flex-start;
-    }
   }
 
   &__links-item {
@@ -166,9 +158,6 @@
           color: var(--primary);
         }
       }
-    }
-    @media (max-width: ($md)) {
-      text-align: left;
     }
   }
 }

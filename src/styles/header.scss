@@ -78,15 +78,16 @@
   &__link {
     font-size: 18px;
     transition: color 0.3s ease;
-    @media (any-hover: hover) {
       &:hover {
         color: var(--primary);
       }
-    }
     @media (max-width: ($lg)) {
       color: #fff;
       font-weight: 700;
       font-size: 24px;
+        &:hover {
+          color: #fff !important;
+        }
     }
   }
 

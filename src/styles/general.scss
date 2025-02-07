@@ -79,6 +79,21 @@ body {
   }
 }
 
+.tel-icon {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+
+  &::before {
+    content: "";
+    width: 25px;
+    height: 20px;
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221em%22%20height%3D%221em%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23341d6f%22%20d%3D%22M19.95%2021q-3.125%200-6.175-1.362t-5.55-3.863t-3.862-5.55T3%204.05q0-.45.3-.75t.75-.3H8.1q.35%200%20.625.238t.325.562l.65%203.5q.05.4-.025.675T9.4%208.45L6.975%2010.9q.5.925%201.187%201.787t1.513%201.663q.775.775%201.625%201.438T13.1%2017l2.35-2.35q.225-.225.588-.337t.712-.063l3.45.7q.35.1.575.363T21%2015.9v4.05q0%20.45-.3.75t-.75.3%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
 .main-title {
   color: var(--gray-dark);
   font-weight: 600;
