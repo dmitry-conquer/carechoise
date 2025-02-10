@@ -1184,8 +1184,8 @@ $sm: 480px;
     height: 100%;
     overflow: auto;
     border-radius: 13px;
-    padding-top: 60px;
-    padding-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
     @include clamp("padding-right", 30, 40);
     @include clamp("padding-left", 30, 40);
     background-color: #fff;
@@ -1198,7 +1198,7 @@ $sm: 480px;
     }
   }
   &__title {
-    @include clamp("margin-bottom", 16, 35);
+    @include clamp("margin-bottom", 16, 20);
     @include clamp("font-size", 32, 40);
     text-align: center;
     color: #000;
@@ -1210,8 +1210,8 @@ $sm: 480px;
   }
   &__close {
     position: absolute;
-    right: 40px;
-    top: 40px;
+    right: 25px;
+    top: 25px;
     padding: 12px;
     margin: -12px;
     @media (any-hover: hover) {
