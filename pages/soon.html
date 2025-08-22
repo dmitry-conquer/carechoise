@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      {{> header}}
+      <div class="page-content">
+        <main>
+          <section class="hero-soon">
+            <div class="hero-soon__container">
+              <img src="/images/svg/soon-decor.svg" alt="Purple gradient" class="hero-soon__image-decor" />
+              <div class="hero-soon__image">
+                <img src="/images/ohio.png" alt="Ohio" class="hero-soon__image-img" />
+              </div>
+              <div class="hero-soon__content">
+                <h1 class="hero-soon__title">Coming Soon to Ohio</h1>
+                <h2 class="hero-soon__subtitle">Supporting Ohio’s Family Caregivers Soon</h2>
+                <p class="hero-soon__text">
+                  Soon, CareChoice will be supporting family caregivers across Ohio with reliable Medicaid guidance, fair pay, and
+                  comprehensive support—just like we do everywhere else.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="soon-form">
+            <div class="soon-form__container">
+              <script type="text/javascript" src="https://form.jotform.com/jsform/252332184178154"></script>
+            </div>
+          </section>
+        </main>
+      </div>
+      {{> footer}} {{> modal}}
+    </div>
+
+    <script type="module" src="../src/scripts/main.ts"></script>
+  </body>
+</html>
