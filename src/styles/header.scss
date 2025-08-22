@@ -171,6 +171,9 @@
 
           @media (max-width: rem(991.98)) {
             color: #fff;
+            &:hover {
+              color: #fff;
+            }
           }
         }
       }
@@ -180,8 +183,6 @@
           visibility: visible;
           pointer-events: auto;
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-
-        
         }
         & > a:after {
           @media (min-width: rem(992)) {
@@ -199,6 +200,13 @@
     &:hover {
       color: var(--primary);
     }
+    @media (max-width: rem(991.98)) {
+      justify-content: center;
+      &:hover {
+        color: #fff;
+      }
+    }
+
     @media (max-width: ($lg)) {
       color: #fff;
       font-weight: 700;
