@@ -6,8 +6,11 @@ import { Sidebar } from "./components/sidebar";
 import AOS from "aos";
 import Map from "./components/map";
 import InitModals from "./components/modal";
+import AdaptiveDOM from "./utils/AdaptiveDOM";
 
 document.addEventListener("DOMContentLoaded", () => {
+  new AdaptiveDOM();
+
   /* Header */
   const header = new Header();
   header?.init();
