@@ -110,7 +110,10 @@ export default class Map {
         markerIcon.title = marker.link.title;
         new AdvancedMarkerElement({
           map,
-          position: { lat: marker.location.lat, lng: marker.location.lng },
+          position: { 
+            lat: parseFloat(String(marker.location.lat).trim()), 
+            lng: parseFloat(String(marker.location.lng).trim()) 
+          },
           content: markerIcon,
         });
       });

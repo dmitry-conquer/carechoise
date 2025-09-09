@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await ApiService.get(`${ajax_obj.ajax_url}?action=get_map_data`);
       if (response.success) {
         const acfOptions = response.data;
+        console.log(acfOptions);
         const map = new Map({
           el: "map",
           apiKey: acfOptions.gmapApiKey,
