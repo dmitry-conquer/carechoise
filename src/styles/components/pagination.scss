@@ -1,0 +1,13 @@
+@use "../helpers" as *;
+
+.pagination {
+  display: flex;
+  column-gap: 20px;
+  justify-content: center;
+
+  &__button {
+    padding: 13px 20px;
+    width: 100%;
+    max-width: 210px;
+  }
+}

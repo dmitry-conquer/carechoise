@@ -1,0 +1,39 @@
+@use "../helpers" as *;
+
+.image-title {
+  @include clamp("padding-top", 35, 70);
+  @include clamp("padding-bottom", 35, 70);
+
+  &__container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+    @media (max-width: ($md)) {
+      text-align: left;
+    }
+  }
+
+  &__header {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 36px;
+    @media (max-width: ($md)) {
+      justify-content: flex-start;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__title {
+  }
+
+  &__image {
+    @include clamp("width", 152, 337);
+    object-fit: contain;
+  }
+
+  &__text {
+  }
+}

@@ -1,0 +1,94 @@
+@use "../helpers" as *;
+
+.steps {
+  @include clamp("padding-top", 30, 60);
+  @include clamp("padding-bottom", 30, 50);
+
+  &__container {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__title {
+    text-align: center;
+    @include clamp("margin-bottom", 20, 37);
+    @media (max-width: ($md)) {
+      text-align: left;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 22px;
+    @media (max-width: ($md)) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.item-steps {
+  border: 1px solid #d2d2d2;
+  border-radius: 20px;
+  padding: 37px 42px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='69' viewBox='0 0 70 69' fill='none'%3E%3Ccircle cx='34.5625' cy='34.5' r='34.5' fill='white'/%3E%3Ccircle cx='34.5625' cy='34.5' r='19.5' fill='url(%23paint0_linear_20948_1874)'/%3E%3Cpath d='M43.5625 33.134C44.2292 33.5189 44.2292 34.4811 43.5625 34.866L36.0625 39.1962C35.3958 39.5811 34.5625 39.0999 34.5625 38.3301L34.5625 29.6699C34.5625 28.9001 35.3958 28.4189 36.0625 28.8038L43.5625 33.134Z' fill='white'/%3E%3Crect x='27.0625' y='32.0908' width='10' height='3.81818' rx='1' fill='white'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_20948_1874' x1='16.5141' y1='16.0178' x2='41.1608' y2='51.5711' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FF5697'/%3E%3Cstop offset='1' stop-color='%23592F8A'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    width: 70px;
+    height: 69px;
+    transform: translate(65%, -50%);
+    z-index: 2;
+    @media (max-width: ($md)) {
+      top: unset;
+      bottom: 0;
+      right: 50%;
+      transform: translate(50%, 65%) rotate(90deg);
+    }
+  }
+
+  &:nth-child(1) {
+    z-index: 3;
+  }
+
+  &:nth-child(2) {
+    z-index: 2;
+  }
+
+  &:nth-child(3) {
+    z-index: 1;
+    position: relative;
+
+    &::after {
+      display: none;
+    }
+  }
+  @media (max-width: ($md)) {
+    padding: 26px 30px;
+  }
+
+  &__image {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    @include clamp("font-size", 18, 25);
+    font-weight: 600;
+    color: var(--gray-dark);
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    @include clamp("font-size", 16, 18);
+  }
+}

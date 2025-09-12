@@ -1,0 +1,87 @@
+@use "../helpers" as *;
+
+.cta {
+  overflow: hidden;
+  @include clamp("padding-top", 30, 70);
+  @include clamp("padding-bottom", 30, 70);
+
+  &__container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    @media (max-width: ($lg)) {
+      flex-direction: column;
+      row-gap: 45px;
+      align-items: stretch;
+    }
+  }
+
+  &__content {
+    padding: 0 20px;
+    flex: 0 1 543px;
+    @media (max-width: ($lg)) {
+      flex: 0 1 auto;
+    }
+  }
+
+  &__image {
+    position: relative;
+    transform: translateX(20px);
+    @media (max-width: ($lg)) {
+      transform: translateX(0);
+    }
+    @media (max-width: ($md)) {
+      img {
+        width: 120%;
+        max-width: 120%;
+        margin: 0 -40px;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(360deg, rgb(255, 255, 264) 4%, rgba(0, 0, 0, 0) 23%);
+    }
+
+    &::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 348" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.504504 348L0.0625 91.6638L145.562 0L291.062 91.6331L290.957 197.999C281.264 278.375 186.826 291.851 69.7535 287.453L0.504504 348Z" fill="url(%23paint0_linear_21009_553)"/><defs><linearGradient id="paint0_linear_21009_553" x1="10.8936" y1="338.918" x2="241.676" y2="60.5377" gradientUnits="userSpaceOnUse"><stop stop-color="%23FF5697"/><stop offset="1" stop-color="%23592F8A"/></linearGradient></defs></svg>');
+      background-repeat: no-repeat;
+      object-fit: contain;
+      transform: translateX(40%);
+    }
+  }
+}
+
+.simple-cta {
+  @include clamp("padding-top", 30, 70);
+  @include clamp("padding-bottom", 30, 60);
+
+  &__container {
+    max-width: 1420px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__content {
+    text-align: center;
+    background-color: var(--yellow);
+    border-radius: 37px;
+    @include clamp("padding-top", 48, 90);
+    @include clamp("padding-bottom", 48, 90);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

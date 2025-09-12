@@ -1,0 +1,69 @@
+@use "../helpers" as *;
+
+.contacts {
+  &__container {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    column-gap: 37px;
+    @media (max-width: ($lg)) {
+      flex-direction: column;
+      row-gap: 37px;
+    }
+  }
+
+  &__content {
+    flex: 0 1 483px;
+    padding-top: 30px;
+    line-height: 1.5;
+    color: var(--gray-light);
+    @include clamp("font-size", 16, 18);
+    @media (max-width: ($lg)) {
+      flex: 0 1 auto;
+      padding-top: 0;
+    }
+
+    h1 {
+      font-weight: 700;
+      @include clamp("font-size", 25, 43);
+      background: linear-gradient(330deg, rgba(89, 47, 138, 1) 0%, rgba(255, 86, 151, 1) 100%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      line-height: 1.2;
+      @include clamp("margin-bottom", 18, 24);
+    }
+
+    a {
+      @include av("margin-top", 34, 18);
+      @include av("font-size", 23, 20);
+      color: var(--secondary);
+      transition: color 0.3s ease;
+      @media (any-hover: hover) {
+        &:hover {
+          color: var(--primary);
+        }
+      }
+    }
+  }
+
+  &__form {
+    flex: 0 1 648px;
+    border-radius: 18px;
+    background-color: var(--yellow);
+    padding: 50px;
+    @media (max-width: ($lg)) {
+      flex: 0 1 auto;
+    }
+    @media (max-width: ($md)) {
+      padding: 45px;
+    }
+  }
+
+  &__form-script {
+    width: 100%;
+    height: 500px;
+  }
+  @include clamp("padding-bottom", 20, 65);
+}

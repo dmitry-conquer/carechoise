@@ -1,0 +1,150 @@
+@use "../helpers" as *;
+
+.resources {
+  @include clamp("margin-top", 40, 55);
+
+  &__container {
+  }
+
+  &__header-wrapper {
+    position: relative;
+    @include clamp("margin-top", 0, 65);
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 6px;
+      left: 0;
+      background-color: #cbcbcb;
+    }
+  }
+
+  &__header {
+    @include clamp("margin-bottom", 45, 60);
+    overflow: auto;
+    padding-bottom: 5px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  &__header-inner {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    align-items: center;
+    column-gap: 30px;
+  }
+
+  &__categories {
+    flex-shrink: 0;
+  }
+
+  &__categories-list {
+    display: flex;
+    column-gap: 24px;
+  }
+
+  &__categories-link {
+    color: #4e4e4e;
+    @include clamp("font-size", 16, 18);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+
+    &.active-cat {
+      font-weight: 700;
+      color: var(--primary);
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 7px;
+        bottom: -27px;
+        left: 0;
+        background-color: var(--primary);
+      }
+    }
+    position: relative;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+
+  &__search {
+    flex-shrink: 0;
+  }
+
+  &__search-input {
+    border-bottom: 1px solid transparent;
+    padding: 3px;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid #cbcbcb;
+    }
+  }
+
+  &__search-button {
+    width: 20px;
+    height: 21px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'%3E%3Cpath d='M9 17.8535C13.4183 17.8535 17 14.2718 17 9.85352C17 5.43524 13.4183 1.85352 9 1.85352C4.58172 1.85352 1 5.43524 1 9.85352C1 14.2718 4.58172 17.8535 9 17.8535Z' stroke='%23592F8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M19.0004 19.8534L14.6504 15.5034' stroke='%23592F8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__body {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 56px 38px;
+
+    &_big-article {
+      .article:nth-child(1) {
+        grid-column: span 3;
+        @media (max-width: ($lg)) {
+          grid-column: span 2;
+        }
+        @media (max-width: ($msm)) {
+          grid-column: span 1;
+        }
+      }
+
+      .article:nth-child(1) .article__image {
+        height: 450px;
+        margin-bottom: 15px;
+        @media (max-width: ($msm)) {
+          height: 250px;
+        }
+      }
+
+      .article:nth-child(1) .article__title {
+        margin-bottom: 0;
+      }
+
+      .article:nth-child(1) .article__more {
+        display: none;
+      }
+
+      .article:nth-child(1) .article__text {
+        display: none;
+      }
+    }
+    @media (max-width: ($lg)) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: ($msm)) {
+      display: block;
+    }
+  }
+}

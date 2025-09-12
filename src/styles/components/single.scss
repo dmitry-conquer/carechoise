@@ -1,0 +1,30 @@
+@use "../helpers" as *;
+
+.single-article {
+  display: grid;
+  grid-template-columns: 1fr 32%;
+  column-gap: 26px;
+  align-items: flex-start;
+  position: relative;
+
+  @include clamp("padding-top", 0, 40);
+  @media (max-width: ($lg)) {
+    grid-template-columns: calc(100% - 40px);
+  }
+
+  &__title {
+    @include clamp("font-size", 25, 40);
+    color: var(--gray-dark);
+    @include clamp("margin-bottom", 15, 50);
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    @include clamp("margin-bottom", 25, 35);
+  }
+
+  &__date {
+  }
+}
