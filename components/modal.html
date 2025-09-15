@@ -1,21 +1,24 @@
-<div id="form-popup" aria-hidden="true" class="modal">
-  <div tabindex="-1" class="modal__body">
-      <div role="dialog" aria-modal="true" class="modal__content">
-        <button class="modal__close" type="button" data-micromodal-close>
+<div id="form-popup" aria-hidden="true" class="modal" role="dialog">
+  <div tabindex="-1" data-micromodal-close class="modal__body">
+    <div class="modal__inner">
+      <div class="modal__content">
+        <button class="modal__close" type="button" data-micromodal-close aria-label="Close Modal">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
+            aria-hidden="true"
           >
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
-        <h2 class="modal__title">Get in Touch</h2>
+        <h2 class="modal__title" id="modal-1-title">Get in Touch</h2>
         <div class="modal__form">
           <script type="text/javascript" src="https://form.jotform.com/jsform/250333028845151"></script>
         </div>
       </div>
+    </div>
   </div>
 </div>

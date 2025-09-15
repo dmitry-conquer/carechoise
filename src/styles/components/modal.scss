@@ -1,23 +1,25 @@
-@use "../helpers" as *;
+@use "../helpers/" as *;
 
 .modal {
   position: fixed;
   inset: 0;
+  z-index: 9999;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(15px);
-  background: #00000056;
-  z-index: 9999;
+  background-color: rgba(108, 108, 108, 0.3);
   opacity: 0;
+  backdrop-filter: blur(10px);
   visibility: hidden;
   pointer-events: none;
   transition: all 0.3s ease;
-  padding-top: fluid(20, 50);
-  padding-bottom: fluid(20, 50);
+  padding: rem(50) 0;
   &.is-open {
-    pointer-events: auto;
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
+    .modal__content {
+      opacity: 1;
+    }
   }
   &__body {
     width: 100%;
@@ -25,45 +27,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 rem(16);
+  }
+  &__inner {
+    width: 100%;
+    max-width: rem(820);
+    max-height: 85vh;
+    max-height: 85dvh;
+    overflow: auto;
+    display: inline-block;
+    border-radius: rem(20);
   }
   &__content {
-    width: 100%;
-    max-width: 738px;
-    max-height: 720px;
-    height: 100%;
-    overflow: auto;
-    border-radius: 13px;
-    padding-top: rem(40);
-    padding-bottom: rem(20);
-    @include clamp("padding-right", 30, 40);
-    @include clamp("padding-left", 30, 40);
+    padding: rem(24);
     background-color: #fff;
-    border-radius: 13px;
+    border-radius: rem(13);
+    opacity: 0;
     transition: opacity 0.3s ease;
     width: 100%;
     position: relative;
-    @media (max-width: 640px) {
-      padding: rem(45) rem(20) rem(30) rem(20);
-    }
   }
   &__title {
-    margin-bottom: fluid(16, 20);
-    font-size: fluid(32, 40);
+    font-size: fluid(25, 42);
+    color: #626262;
+    margin-bottom: rem(24);
+    font-weight: 700;
+    line-height: 1.2;
     text-align: center;
-    color: #000;
-    &::after {
-      display: none;
-    }
   }
   &__form {
   }
   &__close {
     position: absolute;
-    right: rem(25);
-    top: rem(25);
-    padding: rem(12);
-    margin: rem(-12);
-    @include hover {
+    right: rem(12);
+    top: rem(12);
+    @media (any-hover: hover) {
       &:hover {
         & svg {
           color: rgb(179, 0, 0);
@@ -72,13 +70,9 @@
     }
     svg {
       pointer-events: none;
-      width: rem(35);
-      height: rem(35);
+      width: rem(30);
+      height: rem(30);
       color: #626262;
-    }
-    @include small {
-      right: rem(16);
-      top: rem(16);
     }
   }
 }

@@ -5,8 +5,13 @@ import { Sliders } from "./components/sliders";
 import { Sidebar } from "./components/sidebar";
 import AOS from "aos";
 import Map from "./components/map";
-import InitModals from "./components/modal";
+import { InitModals } from "./components/modal";
 import AdaptiveDOM from "./utils/AdaptiveDOM";
+import SvgMap from "./components/svg-map/Map";
+
+declare const mapData: {
+  markers?: MarkerData[];
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   new AdaptiveDOM();
@@ -17,6 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Sliders */
   Sliders?.init();
+
+  if (typeof mapData !== "undefined" && mapData.markers) {
+    new SvgMap(mapData.markers);
+  }
 
   InitModals();
 

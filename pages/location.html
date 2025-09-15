@@ -52,7 +52,9 @@
               </div>
               <div class="cover-areas__list">
                 <div class="cover-areas__item">
-                  <div class="cover-areas__item-image-wrapper"><img src="/images/location/pen1.png" alt="Pittsburgh" class="cover-areas__item-image" /></div>
+                  <div class="cover-areas__item-image-wrapper">
+                    <img src="/images/location/pen1.png" alt="Pittsburgh" class="cover-areas__item-image" />
+                  </div>
                   <div class="cover-areas__item-content">
                     <h3 class="cover-areas__item-title heading-md">
                       Pittsburgh, <br />
@@ -65,7 +67,9 @@
                   </div>
                 </div>
                 <div class="cover-areas__item">
-                  <div class="cover-areas__item-image-wrapper"><img src="/images/location/pen2.png" alt="Philadelphia" class="cover-areas__item-image" /></div>
+                  <div class="cover-areas__item-image-wrapper">
+                    <img src="/images/location/pen2.png" alt="Philadelphia" class="cover-areas__item-image" />
+                  </div>
                   <div class="cover-areas__item-content">
                     <h3 class="cover-areas__item-title heading-md">
                       Philadelphia, <br />
@@ -80,9 +84,13 @@
               </div>
             </div>
           </section>
+
+          <section class="location-map">
+            <div class="location-map__container page-container">{{> svg-map}}</div>
+          </section>
         </main>
       </div>
-      {{> footer}} {{> modal}}
+      {{> footer}} {{> modal}} {{> location-popup}}
     </div>
 
     <script type="module" src="../src/scripts/main.ts"></script>
