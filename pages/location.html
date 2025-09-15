@@ -88,6 +88,37 @@
           <section class="location-map">
             <div class="location-map__container page-container">{{> svg-map}}</div>
           </section>
+
+          <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq__container page-container">
+              <h2 class="faq__title heading-lg">Frequently Asked Questions</h2>
+              <div data-js-accordion class="faq__list">
+                <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                  <button
+                    id="accordion-button-1"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="accordion-panel-1"
+                    data-js-accordion-button
+                    class="faq__button"
+                  >
+                    <span itemprop="name">Button 1</span>
+                  </button>
+                  <div
+                    id="accordion-panel-1"
+                    role="region"
+                    aria-labelledby="accordion-button-1"
+                    class="faq__panel"
+                    itemscope
+                    itemprop="acceptedAnswer"
+                    itemtype="https://schema.org/Answer"
+                  >
+                    <div class="faq__content" itemprop="text">CONTENT 1</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
       </div>
       {{> footer}} {{> modal}} {{> location-popup}}
