@@ -30,7 +30,7 @@
   border-radius: 26px;
   padding: 37px 27px;
   @include clamp("font-size", 14, 18);
-  @media (max-width: ($md)) {
+  @include medium {
     width: 280px;
     padding: 24px 20px;
   }

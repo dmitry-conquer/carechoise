@@ -31,19 +31,19 @@
       &::after {
         transform: translateX(40%);
       }
-      @media (max-width: ($msm)) {
+      @include small {
         order: 2;
       }
     }
 
     .row__content {
       order: 1;
-      @media (max-width: ($msm)) {
+      @include small {
         order: 1;
       }
     }
   }
-  @media (max-width: ($msm)) {
+  @include small {
     grid-template-columns: 1fr;
     row-gap: 25px;
   }
@@ -51,7 +51,7 @@
   &__image {
     position: relative;
     order: 1;
-    @media (max-width: ($msm)) {
+    @include small {
       order: 2;
 
       img {
@@ -81,7 +81,7 @@
       background-repeat: no-repeat;
       object-fit: contain;
       transform: translateX(-12%);
-      @media (max-width: ($msm)) {
+      @include small {
         transform: translateX(-12%);
       }
     }
@@ -90,7 +90,7 @@
   &__content {
     order: 2;
     padding: 0 20px;
-    @media (max-width: ($msm)) {
+    @include small {
       order: 1;
     }
   }

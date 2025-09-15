@@ -13,7 +13,7 @@
   &__title {
     text-align: center;
     @include clamp("margin-bottom", 20, 37);
-    @media (max-width: ($md)) {
+    @include medium {
       text-align: left;
     }
   }
@@ -22,7 +22,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px 22px;
-    @media (max-width: ($md)) {
+    @include medium {
       grid-template-columns: 1fr;
     }
   }
@@ -46,7 +46,7 @@
     height: 69px;
     transform: translate(65%, -50%);
     z-index: 2;
-    @media (max-width: ($md)) {
+    @include medium {
       top: unset;
       bottom: 0;
       right: 50%;
@@ -70,7 +70,7 @@
       display: none;
     }
   }
-  @media (max-width: ($md)) {
+  @include medium {
     padding: 26px 30px;
   }
 

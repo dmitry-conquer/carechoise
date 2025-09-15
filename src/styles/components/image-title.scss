@@ -9,7 +9,7 @@
     margin: 0 auto;
     padding: 0 40px;
     text-align: center;
-    @media (max-width: ($md)) {
+    @include medium {
       text-align: left;
     }
   }
@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 36px;
-    @media (max-width: ($md)) {
+    @include medium {
       justify-content: flex-start;
       margin-bottom: 12px;
     }

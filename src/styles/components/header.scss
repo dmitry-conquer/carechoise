@@ -6,10 +6,10 @@
   display: flex;
   z-index: 9999;
   width: 100%;
-  @media (max-width: ($xl)) {
+  @include x-large {
     height: rem(90);
   }
-  @media (max-width: ($msm)) {
+  @include small {
     height: rem(70);
   }
   &__container {
@@ -40,7 +40,7 @@
     display: flex;
     align-items: center;
     column-gap: rem(30);
-    @media (max-width: ($xl)) {
+    @include x-large {
       height: 100%;
       min-height: 100vh;
       overflow: auto;
@@ -60,7 +60,7 @@
         left: 0;
       }
     }
-    @media (max-width: ($msm)) {
+    @include small {
       padding-top: rem(60);
       top: rem(70);
     }
@@ -73,7 +73,8 @@
     display: flex;
     column-gap: rem(20);
     align-items: center;
-    @media (max-width: ($xl)) {
+
+    @include x-large {  
       flex-direction: column;
       row-gap: rem(16);
     }
@@ -114,7 +115,7 @@
           background-position: center;
           transition: transform 0.3s ease;
 
-          @media (max-width: rem(1200)) {
+          @include x-large {
             background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke-width%3D%220%22%2F%3E%3Cg%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M5.707%209.71a1%201%200%200%200%200%201.415l4.892%204.887a2%202%200%200%200%202.828%200l4.89-4.89a1%201%200%201%200-1.414-1.415l-4.185%204.186a1%201%200%200%201-1.415%200L7.121%209.71a1%201%200%200%200-1.414%200%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E");
           }
         }
@@ -132,7 +133,7 @@
         transition: all 0.3s ease;
         pointer-events: none;
 
-        @media (max-width: rem(1200)) {
+        @include x-large {
           position: static;
           overflow: hidden;
           max-height: 0;
@@ -153,7 +154,7 @@
           &:last-child {
             padding-bottom: rem(12);
           }
-          @media (max-width: rem(1200)) {
+          @include x-large {
             padding: rem(4) 0;
             &:first-child {
               padding-top: rem(12);
@@ -171,7 +172,7 @@
             color: var(--primary);
           }
 
-          @media (max-width: rem(1200)) {
+          @include x-large {
             color: #fff;
             &:hover {
               color: #fff;
@@ -187,7 +188,7 @@
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         }
         & > a:after {
-          @media (min-width: rem(1200)) {
+          @include x-large {
             background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke-width%3D%220%22%2F%3E%3Cg%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M5.707%209.71a1%201%200%200%200%200%201.415l4.892%204.887a2%202%200%200%200%202.828%200l4.89-4.89a1%201%200%201%200-1.414-1.415l-4.185%204.186a1%201%200%200%201-1.415%200L7.121%209.71a1%201%200%200%200-1.414%200%22%20fill%3D%22%23ff5697%22%2F%3E%3C%2Fsvg%3E");
           }
           transform: rotate(-180deg);
@@ -202,14 +203,14 @@
     &:hover {
       color: var(--primary);
     }
-    @media (max-width: rem(1200)) {
+    @include x-large {
       justify-content: center;
       &:hover {
         color: #fff;
       }
     }
 
-    @media (max-width: ($xl)) {
+    @include x-large {
       color: #fff;
       font-weight: 700;
       font-size: rem(24);
@@ -221,16 +222,16 @@
 
   &__button {
     padding: rem(13) rem(34);
-    @media (max-width: ($xl)) {
+    @include x-large {
       padding: rem(10) rem(25);
     }
-    @media (max-width: ($msm)) {
+    @include small {
       display: none;
     }
 
     &_mobile {
       display: none;
-      @media (max-width: ($msm)) {
+      @include small {
         display: block;
         background-color: #fff;
         color: var(--primary);
@@ -248,7 +249,7 @@
       height: 100%;
     }
     display: none;
-    @media (max-width: ($xl)) {
+    @include x-large {
       display: block;
 
       .header__burger-open {

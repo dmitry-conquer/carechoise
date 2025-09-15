@@ -20,7 +20,7 @@
     row-gap: 23px;
     flex-wrap: wrap;
     justify-content: space-between;
-    @media (max-width: ($lg)) {
+    @include large {
       flex-direction: column;
       justify-content: stretch;
     }
@@ -44,7 +44,7 @@
   &__social-image {
     width: 26px;
     height: 26px;
-    @media (max-width: ($sm)) {
+    @include small {
       width: 23px;
       height: 23px;
     }
@@ -74,7 +74,7 @@
 
   &__nav {
     margin-bottom: 16px;
-    @media (max-width: ($md)) {
+    @include medium {
       margin-bottom: 40px;
     }
   }
@@ -98,14 +98,14 @@
         color: var(--primary);
       }
     }
-    @media (max-width: ($sm)) {
+    @include small {
       font-size: 16px;
     }
   }
 
   &__links {
     margin-bottom: 10px;
-    @media (max-width: ($md)) {
+    @include medium {
       margin-bottom: 30px;
     }
   }
@@ -126,7 +126,7 @@
         color: var(--primary);
         padding: 0 4px;
         font-size: 20px;
-        @media (max-width: ($md)) {
+        @include medium {
           font-size: 16px;
         }
       }
@@ -142,7 +142,7 @@
         color: var(--primary);
       }
     }
-    @media (max-width: ($md)) {
+    @include medium {
       font-size: 16px;
     }
   }
@@ -155,7 +155,7 @@
 
     a {
       transition: color 0.3s ease;
-      @media (any-hover: hover) {
+      @include hover {
         &:hover {
           color: var(--primary);
         }

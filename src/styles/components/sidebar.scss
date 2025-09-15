@@ -5,7 +5,7 @@
   position: relative;
   transition: transform 0.3s ease;
   z-index: 10;
-  @media (max-width: ($lg)) {
+  @include large {
     position: absolute;
     top: 0;
     right: -20px;
@@ -22,7 +22,7 @@
     width: 23px;
     height: 22px;
     display: none;
-    @media (max-width: ($lg)) {
+    @include large {
       display: block;
     }
 
@@ -79,7 +79,7 @@
     color: var(--gray-dark);
     @include clamp("font-size", 20, 25);
     transition: color 0.3s ease;
-    @media (any-hover: hover) {
+    @include hover {
       &:hover {
         color: var(--primary);
       }

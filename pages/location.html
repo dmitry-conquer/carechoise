@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      {{> header}}
+      <div class="page-content">
+        <main>
+          <section class="hero-location">
+            <div class="hero-location__container">
+              <img src="/images/svg/soon-decor.svg" alt="Purple gradient" class="hero-location__image-decor" />
+              <div class="hero-location__image">
+                <img src="/images/pen.png" alt="Ohio" class="hero-location__image-img" />
+              </div>
+              <div class="hero-location__content">
+                <h1 class="hero-location__title">
+                  Looking for <br />
+                  Trusted Home Care <br />
+                  in Pennsylvania?
+                </h1>
+                <p class="hero-location__text">
+                  CareChoice makes it easy for you to hire your friend or family member to be your caregiver, keeping care
+                  personal and familiar. Serving Philadelphia, Pittsburgh, and surrounding counties, we can also provide
+                  professional and experienced caregivers when extra support is needed.
+                </p>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+      {{> footer}} {{> modal}}
+    </div>
+
+    <script type="module" src="../src/scripts/main.ts"></script>
+  </body>
+</html>

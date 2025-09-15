@@ -11,7 +11,7 @@
     padding: 0 20px;
     display: flex;
     align-items: center;
-    @media (max-width: ($lg)) {
+    @include large {
       flex-direction: column;
       row-gap: 45px;
       align-items: stretch;
@@ -21,7 +21,7 @@
   &__content {
     padding: 0 20px;
     flex: 0 1 543px;
-    @media (max-width: ($lg)) {
+    @include large {
       flex: 0 1 auto;
     }
   }
@@ -29,10 +29,10 @@
   &__image {
     position: relative;
     transform: translateX(20px);
-    @media (max-width: ($lg)) {
+    @include large {
       transform: translateX(0);
     }
-    @media (max-width: ($md)) {
+    @include medium {
       img {
         width: 120%;
         max-width: 120%;

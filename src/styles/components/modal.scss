@@ -63,7 +63,7 @@
     top: rem(25);
     padding: rem(12);
     margin: rem(-12);
-    @media (any-hover: hover) {
+    @include hover {
       &:hover {
         & svg {
           color: rgb(179, 0, 0);
@@ -76,7 +76,7 @@
       height: rem(35);
       color: #626262;
     }
-    @media (max-width: 640px) {
+    @include small {
       right: rem(16);
       top: rem(16);
     }

@@ -7,7 +7,7 @@
     padding: 0 20px;
     display: flex;
     column-gap: 37px;
-    @media (max-width: ($lg)) {
+    @include large {
       flex-direction: column;
       row-gap: 37px;
     }
@@ -19,7 +19,7 @@
     line-height: 1.5;
     color: var(--gray-light);
     @include clamp("font-size", 16, 18);
-    @media (max-width: ($lg)) {
+    @include large {
       flex: 0 1 auto;
       padding-top: 0;
     }
@@ -53,10 +53,10 @@
     border-radius: 18px;
     background-color: var(--yellow);
     padding: 50px;
-    @media (max-width: ($lg)) {
+    @include large {
       flex: 0 1 auto;
     }
-    @media (max-width: ($md)) {
+    @include medium {
       padding: 45px;
     }
   }

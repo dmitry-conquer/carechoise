@@ -1,7 +1,7 @@
 @use "../helpers" as *;
 
 .article {
-  @media (max-width: ($msm)) {
+  @include small {
     &:not(:last-child) {
       margin-bottom: rem(50);
     }
@@ -37,7 +37,7 @@
     object-fit: cover;
     margin-bottom: rem(30);
     overflow: hidden;
-    @media (max-width: ($msm)) {
+    @include small {
       margin-bottom: rem(20);
     }
 
@@ -62,7 +62,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
-    @media (max-width: ($msm)) {
+    @include small {
       margin-bottom: rem(20);
     }
   }
