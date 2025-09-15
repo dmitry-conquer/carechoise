@@ -13,6 +13,30 @@
   pointer-events: none;
   transition: all 0.3s ease;
   padding: rem(50) 0;
+
+  &--location {
+    .modal__inner {
+      max-width: rem(485);
+      overflow: visible;
+    }
+    .modal__content {
+      padding: rem(60) rem(40);
+    }
+    .modal__close {
+      right: rem(-5);
+      top: rem(-40);
+      svg {
+        width: rem(36);
+        height: rem(36);
+        color: #fff;
+      }
+      &:hover {
+        & svg {
+          color: #fff;
+        }
+      }
+    }
+  }
   &.is-open {
     opacity: 1;
     visibility: visible;

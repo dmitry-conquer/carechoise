@@ -1,0 +1,44 @@
+@use "../helpers/" as *;
+
+.location-popup {
+  &__content {
+    display: flex;
+    column-gap: rem(24);
+  }
+
+  &__icon {
+    width: rem(52);
+    height: rem(52);
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__info {
+  }
+
+  &__title {
+    color: #434343;
+    font-size: fluid(24, 30);
+    font-weight: 600;
+    margin-bottom: rem(16);
+    line-height: 1;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: rem(8);
+    }
+  }
+
+  &__label {
+    color: #707070;
+    font-size: fluid(16, 18);
+    margin-bottom: rem(4);
+  }
+
+  &__text {
+    color: #434343;
+    font-size: fluid(20, 25);
+    line-height: 1.2;
+  }
+}
