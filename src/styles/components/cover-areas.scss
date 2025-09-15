@@ -14,6 +14,7 @@
   }
 
   &__content {
+    padding-top: rem(26);
     flex: 0 1 rem(250);
 
     @include medium {
@@ -22,7 +23,7 @@
   }
 
   &__title {
-    margin-bottom: fluid(30, 51);
+    margin-bottom: fluid(30, 65);
   }
 
   &__arrow {

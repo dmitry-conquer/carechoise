@@ -1,11 +1,11 @@
 @use "../helpers" as *;
 
 .map {
-  padding: fluid(40, 60) 0 fluid(40, 140);
   position: relative;
+  padding-top: 0;
 
   &__container {
-    max-width: rem(1500);
+    max-width: rem(1080);
     margin: 0 auto;
     display: flex;
     @include small {
