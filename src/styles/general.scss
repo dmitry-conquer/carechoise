@@ -120,7 +120,7 @@ body {
 }
 
 .section-title {
-  @include clamp("font-size", 25, 35);
+  font-size: fluid(25, 35);
   font-weight: 600;
   color: var(--gray-dark);
   line-height: 1.1;

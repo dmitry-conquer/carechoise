@@ -8,6 +8,7 @@ import Map from "./components/map";
 import { InitModals } from "./components/modal";
 import AdaptiveDOM from "./utils/AdaptiveDOM";
 import SvgMap from "./components/svg-map/Map";
+import AccordionCollection from "./components/accordion";
 
 declare const mapData: {
   markers?: MarkerData[];
@@ -35,6 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
     sidebarId: "sidebar",
   });
   sidebar.init();
+
+  /* Accordion */
+  new AccordionCollection();
 
   /* AOS */
   AOS?.init({

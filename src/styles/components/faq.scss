@@ -1,0 +1,137 @@
+@use "../helpers" as *;
+
+.faq {
+  &__container {
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: fluid(24, 40);
+  }
+
+  &__list {
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: fluid(24, 40);
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+
+    &.is-active {
+      .faq__button-icon {
+        &::before {
+        }
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+
+    &-text {
+      color: var(--gray-dark);
+      font-size: fluid(20, 25);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    &-icon {
+      width: rem(40);
+      height: rem(40);
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ff5697 3.07%, #592f8a 82.78%);
+      flex-shrink: 0;
+      position: relative;
+      &::before,
+      &::after {
+        content: "";
+        width: rem(4);
+        height: rem(14);
+        border-radius: rem(1);
+        background-color: #fff;
+        position: absolute;
+        transition: all 0.3s ease;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &::before {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+      &::after {
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    will-change: max-height;
+  }
+
+  &__content {
+    padding-top: fluid(12, 28);
+    max-width: rem(900);
+    p,
+    li {
+      line-height: 1.3 !important;
+    }
+    h3 {
+      color: var(--gray-dark) !important;
+    }
+    li::marker {
+      color: var(--gray-dark) !important;
+    }
+    .prose {
+      color: var(--gray-light) !important;
+      font-family: Outfit !important;
+      font-size: fluid(16, 18) !important;
+      line-height: 1.3 !important;
+    }
+    .faq-link {
+      color: var(--primary);
+      display: block;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      column-gap: rem(12);
+      transition: opacity 0.3s ease;
+      @include hover {
+        opacity: 0.7;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: rem(10);
+      }
+
+      &::before {
+        content: "";
+        width: rem(24);
+        height: rem(24);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+
+      &--tel {
+        &::before {
+          background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cg%20clip-path%3D%22url(%23a)%22%20fill%3D%22%23DE4E95%22%3E%3Cpath%20d%3D%22M23.925%2010.65C21.825%205.85%2018%202.025%2013.275.075c-.375-.15-.825%200-.975.45-.15.375%200%20.9.45%201.05%204.425%201.875%207.875%205.325%209.825%209.75q.225.45.675.45c.075%200%20.225%200%20.3-.075.375-.15.525-.6.375-1.05M12.3%205.85c2.7%201.125%204.8%203.225%206%205.925q.226.45.676.45c.075%200%20.225%200%20.3-.075.375-.15.525-.6.375-1.05-1.35-3.075-3.75-5.475-6.75-6.75-.375-.15-.825%200-.975.45-.225.375%200%20.825.375%201.05m7.574%209.3c-.45-.45-.9-.6-1.35-.6s-.975.225-1.35.6l-1.95%201.95c-.075.075-.225.15-.3.15s-.15%200-.225-.075c-.45-.225-.9-.45-1.275-.675-1.875-1.2-3.45-2.7-4.8-4.425C7.95%2011.25%207.35%2010.35%206.9%209.3c-.225-.15-.15-.3%200-.45.675-.6%201.275-1.275%201.95-1.875.9-.9.9-1.95%200-2.85l-1.5-1.5c-.6-.6-1.125-1.125-1.65-1.575C5.325.6%204.8.375%204.35.375S3.375.6%203%20.975c-.675.675-1.35%201.35-2.025%201.95-.6.6-.9%201.35-.975%202.175C-.075%206.45.225%207.725.675%209c.975%202.55%202.4%204.875%204.2%206.975%202.4%202.85%205.25%205.1%208.55%206.675%201.5.75%203.075%201.275%204.725%201.35h.3c1.05%200%201.95-.3%202.7-1.125.525-.6%201.2-1.2%201.8-1.8.9-.9.9-1.95%200-2.85-1.05-.975-2.025-2.025-3.075-3.075m1.95%204.8-.6.6c-.375.375-.825.825-1.2%201.275s-.825.6-1.5.6H18.3c-1.275-.075-2.55-.45-4.125-1.2a24.15%2024.15%200%200%201-8.025-6.3C4.275%2012.75%203%2010.65%202.175%208.4c-.45-1.275-.675-2.25-.6-3.225%200-.45.225-.825.525-1.125l1.2-1.2.75-.75c.15-.15.225-.15.3-.15s.15%200%20.3.15L5.7%203.15l.525.525.75.75.75.75c.3.3.3.375%200%20.6l-.3.3-1.65%201.65c-.6.6-.75%201.425-.45%202.25.45%201.05%201.05%202.025%201.95%203.15%201.65%202.025%203.375%203.6%205.25%204.725q.45.337.9.45l.45.225c.3.15.675.3.975.3.375%200%20.9-.075%201.425-.675.6-.675%201.275-1.275%201.875-1.95.15-.15.225-.15.3-.15%200%200%20.15%200%20.3.15%201.05%201.05%202.1%202.025%203.075%203.075.225.375.3.45%200%20.675%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0%200h24v24H0z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
+        }
+      }
+      &--web {
+        &::before {
+          background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M2.07%203.928c0-.694.563-1.256%201.256-1.256h17.346c.694%200%201.256.562%201.256%201.256v11.417c0%20.308-.25.558-.558.558H2.628a.56.56%200%200%201-.558-.558zm1.256-.14a.14.14%200%200%200-.14.14v10.859h17.626V3.927a.14.14%200%200%200-.14-.139zM0%2019.176c0-.308.25-.558.558-.558h22.884c.308%200%20.558.25.558.558v.855c0%20.694-.563%201.256-1.256%201.256H1.256A1.256%201.256%200%200%201%200%2020.031zm1.116.558v.297c0%20.077.063.14.14.14h21.488a.14.14%200%200%200%20.14-.14v-.297z%22%20fill%3D%22%23DE4E95%22%2F%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M2.138%2015.058a.56.56%200%200%201%20.491-.293h18.742c.205%200%20.393.113.49.293l2.072%203.831a.558.558%200%200%201-.491.824H.558a.558.558%200%200%201-.49-.824zm.824.824-1.468%202.714h7.138l.4-1.36c.07-.237.287-.4.535-.4h4.97c.248%200%20.466.163.536.4l.4%201.36h7.032l-1.467-2.714zm11.347%202.714-.19-.643H9.986l-.19.643z%22%20fill%3D%22%23DE4E95%22%2F%3E%3C%2Fsvg%3E");
+        }
+      }
+    }
+  }
+}
