@@ -56,7 +56,7 @@ body {
 }
 
 .page-container {
-  max-width: 1220px;
+  max-width: rem(1220);
   margin: 0 auto;
   padding: 0 20px;
 
@@ -241,4 +241,21 @@ body {
   @include small {
     max-width: 300px;
   }
+}
+
+.heading-lg,
+.heading-md {
+  color: #434343;
+  font-family: Outfit;
+  font-weight: 600;
+}
+
+.heading-lg {
+  font-size: fluid(25, 35);
+  line-height: 1;
+}
+
+.heading-md {
+  font-size: fluid(20, 25);
+  line-height: 1.2;
 }
