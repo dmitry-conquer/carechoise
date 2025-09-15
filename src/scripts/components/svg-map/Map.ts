@@ -9,46 +9,47 @@ export default class SvgMap {
   private config = {
     highlightColor: "#592F8A",
     breakpoint: 1024,
-    labelOffset: { x: 10, y: -3 },
+    labelOffset: { x: 20, y: -63 },
     mouseMoveDebounce: 3,
     shiftThreshold: 140,
   };
 
-  constructor(markersData: MarkerData[], customConfig: Partial<{
-    highlightColor: string;
-    breakpoint: number;
-    labelOffset: { x: number; y: number };
-    mouseMoveDebounce: number;
-    shiftThreshold: number;
-  }> = {}) {
+  constructor(
+    markersData: MarkerData[],
+    areasData: string[],
+    customConfig: Partial<{
+      highlightColor: string;
+      breakpoint: number;
+      labelOffset: { x: number; y: number };
+      mouseMoveDebounce: number;
+      shiftThreshold: number;
+    }> = {}
+  ) {
     this.config = { ...this.config, ...customConfig };
     this.markers = new Markers();
-    
+
     this.rootElement = document.querySelector(".map");
     this.mapElement = this.rootElement?.querySelector(".map-svg") || null;
     this.areas = Array.from(this.rootElement?.querySelectorAll("[data-area]") || []);
     this.label = this.rootElement?.querySelector(".map-label") || null;
 
     if (this.rootElement && this.mapElement) {
-      this.init(markersData);
+      this.init(markersData, areasData);
     }
   }
 
-  private init(markersData: MarkerData[]): void {
-    this.fillAreas();
+  private init(markersData: MarkerData[], areasData: string[]): void {
+    this.fillAreas(areasData);
     this.markers.renderMarkers(markersData);
     this.bindEvents();
   }
 
-  private fillAreas(): void {
-    const keys = this.rootElement?.dataset.filledAreas;
-    if (!keys) return;
+  private fillAreas(areasData: string[]): void {
+    if (!areasData) return;
 
-    const keysArray = keys.split(",").map(key => key.trim());
-    
     this.areas.forEach(area => {
       const areaId = area.getAttribute("data-area");
-      if (areaId && keysArray.includes(areaId)) {
+      if (areaId && areasData.includes(areaId)) {
         area.setAttribute("fill", this.config.highlightColor);
       }
     });
@@ -58,8 +59,9 @@ export default class SvgMap {
     if (!this.label || !this.mapElement) return;
 
     let shiftPosition = 0;
-    const width = this.mapElement.offsetWidth;
-    
+    const rect = this.mapElement.getBoundingClientRect();
+    const width = rect.width || this.mapElement.clientWidth || this.mapElement.offsetWidth;
+
     if (window.innerWidth <= this.config.breakpoint && width) {
       shiftPosition = e.offsetX > width / 2 ? this.config.shiftThreshold : 0;
     }
@@ -70,7 +72,7 @@ export default class SvgMap {
 
   private showLabel = (area: HTMLElement): void => {
     if (!this.label) return;
-    
+
     const areaName = area.dataset.area;
     if (!areaName) return;
 
@@ -86,32 +88,11 @@ export default class SvgMap {
   private bindEvents(): void {
     if (!this.mapElement) return;
 
-    let mouseMoveTimeout: number | null = null;
-    const debouncedMouseMove = (e: MouseEvent) => {
-      if (mouseMoveTimeout) {
-        clearTimeout(mouseMoveTimeout);
-      }
-      mouseMoveTimeout = window.setTimeout(() => {
-        this.setLabelPosition(e);
-      }, this.config.mouseMoveDebounce);
-    };
-
     this.areas.forEach(area => {
-      area.addEventListener("mousemove", () => this.showLabel(area));
-      area.addEventListener("mouseleave", this.hideLabel);
+      area?.addEventListener("mousemove", () => this.showLabel(area));
+      area?.addEventListener("mouseleave", this.hideLabel);
     });
 
-    this.mapElement.addEventListener("mousemove", debouncedMouseMove);
-  }
-
-  public destroy(): void {
-    this.areas.forEach(area => {
-      area.removeEventListener("mousemove", () => this.showLabel(area));
-      area.removeEventListener("mouseleave", this.hideLabel);
-    });
-
-    if (this.mapElement) {
-      this.mapElement.removeEventListener("mousemove", this.setLabelPosition);
-    }
+    this.mapElement.addEventListener("mousemove", this.setLabelPosition);
   }
 }

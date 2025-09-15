@@ -12,6 +12,7 @@ import AccordionCollection from "./components/accordion";
 
 declare const mapData: {
   markers?: MarkerData[];
+  areas?: string[];
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Sliders?.init();
 
   if (typeof mapData !== "undefined" && mapData.markers) {
-    new SvgMap(mapData.markers);
+    new SvgMap(mapData.markers, mapData.areas || []);
   }
 
   InitModals();

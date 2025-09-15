@@ -1,8 +1,4 @@
-<div
-  data-map
-  data-filled-areas="Bucks, Greene, Fayette, Washington, Allegheny, Beaver, Butler, Armstrong, Clarion, Forest, Venango, Westmoreland, Indiana, Jefferson, Warren, Mc Kean, Elk, Clearfield, Blair, Cambria, Somerset, Bedford, Huntingdon, Franklin, Mifflin, Potter, Clinton, Centre, Union, Tioga, Lycoming, Wyoming, Sullivan, Columbia, Northumberland, Snyder, Juniata, Perry, Cumberland, Adams, York, Dauphin, Lebanon, Lancaster, Berks, Schuylkill, Carbon, Luzerne, Lackawanna, Bradford, Susquehanna, Wayne, Pike, Monroe, Northampton, Lehigh, Delaware, Montgomery, Chester, Philadelphia, Fulton, Cameron, Montour"
-  class="map container"
->
+<div data-map data-filled-areas="" class="map container">
   <div class="map__container">
     <div class="map__body">
       <div class="map__svg-wrapper">
@@ -634,6 +630,7 @@
 <script>
   const imageSrc = "https://carechoice.com/wp-content/uploads/2025/09/Frame-62.svg";
   const mapData = {
+    areas: ['Bucks', 'Greene', 'Fayette', 'Washington', 'Allegheny', 'Beaver', 'Butler', 'Armstrong', 'Clarion', 'Forest', 'Venango', 'Westmoreland', 'Indiana', 'Jefferson', 'Warren', 'Mc Kean', 'Elk', 'Clearfield', 'Blair', 'Cambria', 'Somerset', 'Bedford', 'Huntingdon', 'Franklin', 'Mifflin', 'Potter', 'Clinton', 'Centre', 'Union', 'Tioga', 'Lycoming', 'Wyoming', 'Sullivan', 'Columbia', 'Northumberland', 'Snyder', 'Juniata', 'Perry', 'Cumberland', 'Adams', 'York', 'Dauphin', 'Lebanon', 'Lancaster', 'Berks', 'Schuylkill', 'Carbon', 'Luzerne', 'Lackawanna', 'Bradford', 'Susquehanna', 'Wayne', 'Pike', 'Monroe', 'Northampton', 'Lehigh', 'Delaware', 'Montgomery', 'Chester', 'Philadelphia', 'Fulton', 'Cameron', 'Montour'],
     markers: [
       {
         x: 90,
@@ -645,7 +642,7 @@
         },
         image_src: imageSrc,
       },
-      { 
+      {
         x: 970,
         y: 545,
         content: {
