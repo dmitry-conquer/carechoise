@@ -86,24 +86,28 @@
   &__content {
     padding-top: fluid(12, 28);
     max-width: rem(900);
+    color: #707070 !important;
     p,
     li {
       line-height: 1.3 !important;
     }
     h3 {
-      color: var(--gray-dark) !important;
+      color: #434343 !important;
+      font-size: rem(20);
+    }
+    strong {
+      color: #434343 !important;
     }
     li::marker {
       color: var(--gray-dark) !important;
     }
     .prose {
-      color: var(--gray-light) !important;
       font-family: Outfit !important;
       font-size: fluid(16, 18) !important;
       line-height: 1.3 !important;
     }
     .faq-link {
-      color: var(--primary);
+      color: #DE4E95;
       display: block;
       font-weight: 600;
       text-decoration: none;

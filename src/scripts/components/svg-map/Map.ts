@@ -28,7 +28,7 @@ export default class SvgMap {
     this.config = { ...this.config, ...customConfig };
     this.markers = new Markers();
 
-    this.rootElement = document.querySelector(".map");
+    this.rootElement = document.querySelector(".svg-map");
     this.mapElement = this.rootElement?.querySelector(".map-svg") || null;
     this.areas = Array.from(this.rootElement?.querySelectorAll("[data-area]") || []);
     this.label = this.rootElement?.querySelector(".map-label") || null;

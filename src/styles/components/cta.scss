@@ -74,6 +74,9 @@
     .simple-cta__content {
       background-color: transparent;
     }
+    h2 {
+      color: var(--secondary) !important;
+    }
   }
 
   &__container {

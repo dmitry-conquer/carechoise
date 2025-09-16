@@ -2,7 +2,7 @@
 
 html {
   --primary: #ff5697;
-  --secondary: #341d6f;
+  --secondary: #5a308b;
   --yellow: #fff9f2;
   --gray-dark: #434343;
   --gray-light: #707070;
@@ -100,7 +100,7 @@ body {
 
 .gradient-text {
   background: rgb(255, 86, 151);
-  background: linear-gradient(330deg, rgba(89, 47, 138, 1) 0%, rgba(255, 86, 151, 1) 100%);
+  background: linear-gradient(330deg, rgba(89, 47, 138, 1) 27%, rgba(255, 86, 151, 1) 79%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -170,7 +170,7 @@ body {
   }
 
   a {
-    padding: rem(14) rem(44);
+    padding: rem(12) rem(44);
     border-radius: 34px;
     background-color: var(--primary);
     color: #fff;
@@ -240,7 +240,12 @@ body {
 
 .page-heading {
   padding: 0 20px;
-
+  &--bottom {
+    margin-bottom: fluid(40, 65);
+    h1 {
+      text-align: center !important;
+    }
+  }
 }
 
 .heading-lg,
