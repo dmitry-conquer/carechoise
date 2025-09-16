@@ -11,7 +11,7 @@
     padding: 0 20px;
     display: flex;
     align-items: center;
-    @include large {
+    @include medium {
       flex-direction: column;
       row-gap: 45px;
       align-items: stretch;
@@ -21,7 +21,7 @@
   &__content {
     padding: 0 20px;
     flex: 0 1 543px;
-    @include large {
+    @include medium {
       flex: 0 1 auto;
     }
   }
@@ -29,10 +29,10 @@
   &__image {
     position: relative;
     transform: translateX(20px);
-    @include large {
+    @include medium {
       transform: translateX(0);
     }
-    @include medium {
+    @include x-small {
       img {
         width: 120%;
         max-width: 120%;
@@ -66,22 +66,34 @@
 }
 
 .simple-cta {
-  @include clamp("padding-top", 30, 70);
-  @include clamp("padding-bottom", 30, 60);
+  padding-top: fluid(30, 70);
+  padding-bottom: fluid(30, 60);
+  &--transparent {
+    padding: 0;
+
+    .simple-cta__content {
+      background-color: transparent;
+    }
+  }
 
   &__container {
-    max-width: 1420px;
+    max-width: rem(1420);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 rem(20);
   }
 
   &__content {
     text-align: center;
     background-color: var(--yellow);
     border-radius: 37px;
-    @include clamp("padding-top", 48, 90);
-    @include clamp("padding-bottom", 48, 90);
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: fluid(48, 90);
+    padding-bottom: fluid(48, 90);
+    padding-left: rem(20);
+    padding-right: rem(20);
+
+    h2 {
+      margin-bottom: rem(20);
+      font-size: fluid(25, 30);
+    }
   }
 }

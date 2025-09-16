@@ -1,0 +1,52 @@
+@use "../helpers" as *;
+
+.logos {
+  padding-block: fluid(40, 50);
+  &--center {
+    .logos__list {
+      gap: fluid(20, 80);
+    }
+    .logos__item {
+      width: auto;
+      aspect-ratio: unset;
+      width: rem(150);
+      min-width: auto;
+    }
+  }
+
+  &__container {
+  }
+
+  &__title {
+    margin-bottom: fluid(24, 40);
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: fluid(5, 40);
+    align-items: center;
+
+    @include x-small {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    height: 100%;
+    object-fit: contain;
+    width: calc(100% / 4 - rem(30));
+    min-width: rem(180);
+    display: flex;
+    align-self: center;
+    justify-self: center;
+
+    @include x-small {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+}

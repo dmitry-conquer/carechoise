@@ -170,13 +170,13 @@ body {
   }
 
   a {
-    padding: 20px 52px;
+    padding: rem(14) rem(44);
     border-radius: 34px;
     background-color: var(--primary);
     color: #fff;
     font-weight: 700;
     text-align: center;
-    @include clamp("font-size", 16, 10);
+    font-size: rem(18);
     display: inline-block;
     line-height: 1.3;
     transition: all 0.3s ease;
@@ -219,13 +219,13 @@ body {
 }
 
 .primary-button {
-  padding: 21px 55px;
+  padding: 13px 55px;
   border-radius: 34px;
   background-color: var(--primary);
   color: #fff;
   font-weight: 700;
   text-align: center;
-  @include clamp("font-size", 16, 18);
+  font-size: rem(18);
   display: block;
   line-height: 1.3;
   transition: all 0.3s ease;
@@ -240,9 +240,7 @@ body {
 
 .page-heading {
   padding: 0 20px;
-  @include small {
-    max-width: 300px;
-  }
+
 }
 
 .heading-lg,
@@ -255,6 +253,14 @@ body {
 .heading-lg {
   font-size: fluid(25, 35);
   line-height: 1;
+}
+
+.heading-base {
+  font-size: fluid(25, 30);
+  line-height: 1;
+  color: var(--secondary);
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .heading-md {
