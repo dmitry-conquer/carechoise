@@ -20,6 +20,7 @@ type TypeMapOptions = {
   markers: TypeMarker[];
   geoJsonUrl: string;
   activeLocations: string;
+  stateUrlMapping?: { [key: string]: string };
 };
 
 export default class Map {
@@ -100,6 +101,12 @@ export default class Map {
           fillOpacity: 1,
         };
       });
+
+      this.map.data.addListener("click", (event: any) => {
+        const stateCode = event.feature.getProperty("STUSPS");
+        const stateName = event.feature.getProperty("NAME");
+        this.handleStateClick(stateCode, stateName);
+      });
     });
     loader.importLibrary("marker").then(({ AdvancedMarkerElement }) => {
       const map = this.map;
@@ -110,9 +117,9 @@ export default class Map {
         markerIcon.title = marker.link.title;
         new AdvancedMarkerElement({
           map,
-          position: { 
-            lat: parseFloat(String(marker.location.lat).trim()), 
-            lng: parseFloat(String(marker.location.lng).trim()) 
+          position: {
+            lat: parseFloat(String(marker.location.lat).trim()),
+            lng: parseFloat(String(marker.location.lng).trim()),
           },
           content: markerIcon,
         });
@@ -125,5 +132,71 @@ export default class Map {
       const mapZoom = this.getZoom();
       this.map.setZoom(mapZoom);
     });
+  }
+
+  private handleStateClick(stateCode: string, stateName: string): void {
+    const stateUrlMapping: { [key: string]: string } = {
+      CA: "https://carechoice.com/california/",
+      TX: "https://carechoice.com/texas/",
+      FL: "https://carechoice.com/florida/",
+      NY: "https://carechoice.com/new-york/",
+      PA: "https://carechoice.com/pennsylvania/",
+      IL: "https://carechoice.com/illinois/",
+      OH: "https://carechoice.com/ohio/",
+      GA: "https://carechoice.com/georgia/",
+      NC: "https://carechoice.com/north-carolina/",
+      MI: "https://carechoice.com/michigan/",
+      NJ: "https://carechoice.com/new-jersey/",
+      VA: "https://carechoice.com/virginia/",
+      WA: "https://carechoice.com/washington/",
+      AZ: "https://carechoice.com/arizona/",
+      MA: "https://carechoice.com/massachusetts/",
+      TN: "https://carechoice.com/tennessee/",
+      IN: "https://carechoice.com/indiana/",
+      MO: "https://carechoice.com/missouri/",
+      MD: "https://carechoice.com/maryland/",
+      WI: "https://carechoice.com/wisconsin/",
+      CO: "https://carechoice.com/colorado/",
+      MN: "https://carechoice.com/minnesota/",
+      SC: "https://carechoice.com/south-carolina/",
+      AL: "https://carechoice.com/alabama/",
+      LA: "https://carechoice.com/louisiana/",
+      KY: "https://carechoice.com/kentucky/",
+      OR: "https://carechoice.com/oregon/",
+      OK: "https://carechoice.com/oklahoma/",
+      CT: "https://carechoice.com/connecticut/",
+      UT: "https://carechoice.com/utah/",
+      IA: "https://carechoice.com/iowa/",
+      NV: "https://carechoice.com/nevada/",
+      AR: "https://carechoice.com/arkansas/",
+      MS: "https://carechoice.com/mississippi/",
+      KS: "https://carechoice.com/kansas/",
+      NM: "https://carechoice.com/new-mexico/",
+      NE: "https://carechoice.com/nebraska/",
+      WV: "https://carechoice.com/west-virginia/",
+      ID: "https://carechoice.com/idaho/",
+      HI: "https://carechoice.com/hawaii/",
+      NH: "https://carechoice.com/new-hampshire/",
+      ME: "https://carechoice.com/maine/",
+      RI: "https://carechoice.com/rhode-island/",
+      MT: "https://carechoice.com/montana/",
+      DE: "https://carechoice.com/delaware/",
+      SD: "https://carechoice.com/south-dakota/",
+      ND: "https://carechoice.com/north-dakota/",
+      AK: "https://carechoice.com/alaska/",
+      VT: "https://carechoice.com/vermont/",
+      WY: "https://carechoice.com/wyoming/",
+      DC: "https://carechoice.com/washington-dc/",
+    };
+
+    const urlMapping = this.options.stateUrlMapping || stateUrlMapping;
+    const stateUrl = urlMapping[stateCode];
+
+    if (stateUrl) {
+      window.location.href = stateUrl;
+    } else {
+      const stateSlug = stateName.toLowerCase().replace(/\s+/g, "-");
+      window.location.href = `https://carechoice.com/${stateSlug}/`;
+    }
   }
 }
