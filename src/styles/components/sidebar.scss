@@ -1,24 +1,29 @@
 @use "../helpers" as *;
 .sidebar {
-  background-color: #f9e8d4;
-  padding: 52px 30px 50px 45px;
-  position: relative;
+  position: sticky;
+  top: rem(24);
+  border-radius: rem(24);
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  padding: rem(24);
+  background-color: #fff;
   z-index: 10;
+
   @include large {
     position: absolute;
     top: 0;
     right: -20px;
     height: 100%;
-    background-color: #f9e8d4;
     width: 280px;
     transform: translateX(calc(100% - 40px));
+    padding: rem(24) rem(24) rem(24) rem(48);
+    border-radius: rem(16);
   }
 
   &__button {
     position: absolute;
-    left: 10px;
-    top: 10px;
+    left: rem(12);
+    top: rem(12);
     width: 23px;
     height: 22px;
     display: none;
@@ -62,8 +67,8 @@
 
   &__title {
     color: var(--gray-dark);
-    @include clamp("font-size", 25, 35);
-    @include clamp("margin-bottom", 20, 30);
+    font-size: fluid(20, 24);
+    margin-bottom: rem(16);
   }
 
   &__list {
@@ -76,8 +81,8 @@
   }
 
   &__link {
-    color: var(--gray-dark);
-    @include clamp("font-size", 20, 25);
+    color: #909090;
+    font-size: fluid(16, 18);
     transition: color 0.3s ease;
     @include hover {
       &:hover {

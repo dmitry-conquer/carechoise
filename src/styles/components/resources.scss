@@ -1,8 +1,6 @@
 @use "../helpers" as *;
 
 .resources {
-  @include clamp("margin-top", 40, 55);
-
   &__container {
   }
 
@@ -22,9 +20,9 @@
   }
 
   &__header {
-    @include clamp("margin-bottom", 45, 60);
+    margin-bottom: fluid(40, 60);
     overflow: auto;
-    padding-bottom: 5px;
+    padding-bottom: rem(5);
 
     &::-webkit-scrollbar {
       display: none;
@@ -45,7 +43,7 @@
     flex-shrink: 0;
   }
 
-  &__categories-list {  
+  &__categories-list {
     display: flex;
     column-gap: 24px;
   }
@@ -106,12 +104,14 @@
   &__body {
     margin-bottom: 60px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 56px 38px;
 
     &_big-article {
       .article:nth-child(1) {
-        grid-column: span 3;
+        grid-column: span 2;
+        box-shadow: none;
+
         @include large {
           grid-column: span 2;
         }
@@ -122,22 +122,21 @@
 
       .article:nth-child(1) .article__image {
         height: 450px;
-        margin-bottom: 15px;
+        margin-bottom: 0;
         @include small {
           height: 250px;
         }
       }
 
       .article:nth-child(1) .article__title {
-        margin-bottom: 0;
+        margin-bottom: rem(8);
+        font-size: fluid(32, 40);
       }
-
-      .article:nth-child(1) .article__more {
+      .article:nth-child(1) .article__footer {
         display: none;
       }
-
       .article:nth-child(1) .article__text {
-        display: none;
+        margin-bottom: 0;
       }
     }
     @include large {
