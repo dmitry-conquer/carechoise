@@ -2,8 +2,8 @@
 
 .article {
   border-radius: rem(24);
-  background: #FFF;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
+  background: #fff;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 
   @include large {
     border-radius: rem(16);
@@ -45,13 +45,12 @@
 
   &__image {
     width: 100%;
-    height: rem(250);
-    object-fit: cover;
-    border-radius: rem(32);
+    height: rem(216);
+    border-radius: rem(24) rem(24) 0 0;
     overflow: hidden;
 
     @include large {
-      border-radius: rem(16);
+      border-radius: rem(16) rem(16) 0 0;
     }
     @include small {
       margin-bottom: rem(20);
@@ -59,11 +58,14 @@
 
     img {
       transition: transform 0.4s ease;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
   }
 
   &__title {
-    margin-bottom: rem(20);
+    margin-bottom: rem(12);
     font-size: fluid(20, 24);
     color: var(--gray-dark);
     line-height: 1.1;
@@ -71,7 +73,7 @@
   }
 
   &__text {
-    margin-bottom: rem(33);
+    margin-bottom: rem(24);
     color: #909090;
     line-height: 1.6;
     font-size: rem(18);
@@ -88,6 +90,7 @@
     display: flex;
     column-gap: rem(16);
     align-items: center;
+    justify-content: space-between;
   }
 
   &__date {
@@ -100,15 +103,15 @@
     color: #de4e95;
     font-size: rem(18);
     position: relative;
+    display: flex;
+    align-items: center;
+    column-gap: rem(12);
 
     &::after {
       content: "";
-      position: absolute;
-      right: 0;
-      top: 50%;
       width: rem(16);
       height: rem(19);
-      transform: translateY(-50%) rotate(270deg) translateX(0);
+      transform: translateY(0) rotate(270deg) translateX(0);
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='19' viewBox='0 0 16 19' fill='none'%3E%3Cpath d='M7.29289 18.7071C7.68342 19.0976 8.31658 19.0976 8.70711 18.7071L15.0711 12.3431C15.4616 11.9526 15.4616 11.3195 15.0711 10.9289C14.6805 10.5384 14.0474 10.5384 13.6569 10.9289L8 16.5858L2.34315 10.9289C1.95262 10.5384 1.31946 10.5384 0.928933 10.9289C0.538408 11.3195 0.538408 11.9526 0.928933 12.3431L7.29289 18.7071ZM7 4.37114e-08L7 18L9 18L9 -4.37114e-08L7 4.37114e-08Z' fill='%23DE4E95'/%3E%3C/svg%3E");
       transition: transform 0.3s ease;
     }

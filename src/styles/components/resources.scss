@@ -121,15 +121,20 @@
       }
 
       .article:nth-child(1) .article__image {
-        height: 450px;
+        height: rem(417);
         margin-bottom: 0;
         @include small {
-          height: 250px;
+          height: rem(250);
         }
       }
 
+
+      .article:nth-child(1) .article__content {
+        padding: 0;
+      }
       .article:nth-child(1) .article__title {
         margin-bottom: rem(8);
+        margin-top: fluid(16, 32);
         font-size: fluid(32, 40);
       }
       .article:nth-child(1) .article__footer {

@@ -1,17 +1,18 @@
 @use "../helpers" as *;
 
 .blog-page {
-  max-width: rem(1320);
+  max-width: rem(1240);
   margin: 0 auto;
   padding: 0 rem(20);
 
   &__header {
     margin-bottom: fluid(24, 55);
+    padding: 0;
   }
 
   &__container {
     display: grid;
-    grid-template-columns: 1fr 30%;
+    grid-template-columns: 1fr 29%;
     column-gap: fluid(20, 52);
     align-items: start;
     position: relative;
