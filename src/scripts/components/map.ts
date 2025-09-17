@@ -91,21 +91,55 @@ export default class Map {
       this.map.data.setStyle((feature: any) => {
         let color = "#F05296";
         const statesWithBlueColor = this.splitString(this.options.activeLocations);
-        if (statesWithBlueColor.includes(feature.getProperty("STUSPS"))) {
+        const isActive = statesWithBlueColor.includes(feature.getProperty("STUSPS"));
+        
+        if (isActive) {
           color = "#5A308B";
         }
+        
         return {
           fillColor: color,
           strokeWeight: 1,
           strokeColor: "#fff",
           fillOpacity: 1,
+          cursor: isActive ? "pointer" : "default",
         };
       });
 
       this.map.data.addListener("click", (event: any) => {
         const stateCode = event.feature.getProperty("STUSPS");
         const stateName = event.feature.getProperty("NAME");
-        this.handleStateClick(stateCode, stateName);
+        
+        const statesWithBlueColor = this.splitString(this.options.activeLocations);
+        if (statesWithBlueColor.includes(stateCode)) {
+          this.handleStateClick(stateCode, stateName);
+        }
+      });
+
+      this.map.data.addListener("mouseover", (event: any) => {
+        const stateCode = event.feature.getProperty("STUSPS");
+        const statesWithBlueColor = this.splitString(this.options.activeLocations);
+        
+        if (statesWithBlueColor.includes(stateCode)) {
+          this.map.data.overrideStyle(event.feature, {
+            fillOpacity: 0.8,
+            strokeWeight: 2,
+            strokeColor: "#fff",
+          });
+        }
+      });
+
+      this.map.data.addListener("mouseout", (event: any) => {
+        const stateCode = event.feature.getProperty("STUSPS");
+        const statesWithBlueColor = this.splitString(this.options.activeLocations);
+        
+        if (statesWithBlueColor.includes(stateCode)) {
+          this.map.data.overrideStyle(event.feature, {
+            fillOpacity: 1,
+            strokeWeight: 1,
+            strokeColor: "#fff",
+          });
+        }
       });
     });
     loader.importLibrary("marker").then(({ AdvancedMarkerElement }) => {

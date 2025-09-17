@@ -1,13 +1,12 @@
 @use "../helpers" as *;
 
 .image-title {
-  @include clamp("padding-top", 35, 70);
-  @include clamp("padding-bottom", 35, 70);
+  padding-block: fluid(35, 70);
 
   &__container {
-    max-width: 1120px;
+    max-width: rem(1120);
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 rem(40);
     text-align: center;
     @include medium {
       text-align: left;
@@ -16,24 +15,18 @@
 
   &__header {
     display: flex;
-    column-gap: 20px;
+    column-gap: rem(20);
     align-items: center;
     justify-content: center;
-    margin-bottom: 36px;
+    margin-bottom: rem(36);
     @include medium {
       justify-content: flex-start;
-      margin-bottom: 12px;
+      margin-bottom: rem(12);
     }
   }
 
-  &__title {
-  }
-
   &__image {
-    @include clamp("width", 152, 337);
+    width: fluid(152, 337);
     object-fit: contain;
-  }
-
-  &__text {
   }
 }

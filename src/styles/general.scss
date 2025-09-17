@@ -170,7 +170,7 @@ body {
   }
 
   a {
-    padding: rem(12) rem(44);
+    padding: rem(20) rem(44);
     border-radius: 34px;
     background-color: var(--primary);
     color: #fff;
@@ -219,8 +219,8 @@ body {
 }
 
 .primary-button {
-  padding: 13px 55px;
-  border-radius: 34px;
+  padding: rem(20) rem(55);
+  border-radius: rem(34);
   background-color: var(--primary);
   color: #fff;
   font-weight: 700;
