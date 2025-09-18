@@ -4,8 +4,8 @@
   top: rem(24);
   border-radius: rem(24);
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  padding: rem(24);
+  transition: transform 0.3s ease, position 0.3s ease;
+  padding: fluid(10, 24);
   background-color: #fff;
   z-index: 10;
 
@@ -13,11 +13,15 @@
     position: absolute;
     top: 0;
     right: -20px;
-    height: 100%;
-    width: 280px;
+    height: max-content;
+    width: rem(375);
     transform: translateX(calc(100% - 40px));
     padding: rem(24) rem(24) rem(24) rem(48);
     border-radius: rem(16);
+  }
+
+  @include x-small {
+    width: 100%;
   }
 
   &__button {
@@ -61,7 +65,7 @@
 
   &__section {
     &:not(:last-child) {
-      @include clamp("margin-bottom", 30, 50);
+      margin-bottom: fluid(24, 32);
     }
   }
 
@@ -89,5 +93,71 @@
         color: var(--primary);
       }
     }
+  }
+
+  &__search {
+  }
+
+  &__search-form {
+    border-radius: rem(40);
+    border: rem(1) solid #d2d2d2;
+    padding: rem(8) rem(12);
+    display: flex;
+  }
+
+  &__search-input {
+    width: 100%;
+    height: rem(28);
+    outline: none;
+    border: none;
+    font-size: rem(18);
+    &::placeholder {
+      font-size: inherit;
+    }
+  }
+
+  &__search-button {
+    color: var(--primary-100);
+  }
+
+  &__posts {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(20);
+  }
+
+  &__post {
+    @include hover {
+      .sidebar__post-title {
+        color: var(--primary);
+      }
+
+      .sidebar__post-image {
+        transform: scale(1.04);
+      }
+    }
+  }
+  &__post-image-wrapper {
+    border-radius: rem(16);
+    margin-bottom: rem(8);
+    overflow: hidden;
+    height: rem(162);
+  }
+  &__post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &__post-title {
+    color: #909090;
+    font-size: rem(18);
+    font-weight: 400;
+    line-height: 1.55;
+    margin-bottom: rem(16);
+  }
+
+  &__post-readmore {
   }
 }

@@ -2,6 +2,7 @@
 
 html {
   --primary: #ff5697;
+  --primary-100: #de4e95;
   --secondary: #5a308b;
   --yellow: #fff9f2;
   --gray-dark: #434343;
@@ -54,6 +55,12 @@ body {
   .page-content {
     @include clamp("padding-top", 15, 30);
     flex: 1 1 auto;
+  }
+}
+.page-content {
+  overflow: visible;
+  @include large {
+    overflow: hidden;
   }
 }
 
@@ -271,4 +278,8 @@ body {
 .heading-md {
   font-size: fluid(20, 25);
   line-height: 1.2;
+}
+
+.search-title {
+  padding-bottom: fluid(24, 32);
 }

@@ -2,27 +2,36 @@
 
 .single-article {
   display: grid;
-  grid-template-columns: 1fr 32%;
-  column-gap: 26px;
-  align-items: flex-start;
+  grid-template-columns: 1fr 29%;
+  column-gap: fluid(20, 52);
+  align-items: start;
   position: relative;
 
-  @include clamp("padding-top", 0, 40);
   @include large {
     grid-template-columns: calc(100% - 40px);
   }
 
   &__title {
-    @include clamp("font-size", 25, 40);
+    font-size: fluid(25, 35);
     color: var(--gray-dark);
-    @include clamp("margin-bottom", 15, 50);
+    margin-bottom: rem(24);
+  }
+  &__date {
+    margin-bottom: rem(15);
+    color: #bfbfbf;
+    font-size: rem(16);
   }
 
   &__image {
     width: 100%;
     height: auto;
     object-fit: cover;
-    @include clamp("margin-bottom", 25, 35);
+    margin-bottom: fluid(25, 35);
+    max-height: rem(417);
+    border-radius: rem(24);
+    @include small {
+      border-radius: rem(16);
+    }
   }
 
   &__date {

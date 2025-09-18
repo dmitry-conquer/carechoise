@@ -1,13 +1,53 @@
 @use "../helpers" as *;
 
 .pagination {
-  display: flex;
-  column-gap: 20px;
-  justify-content: center;
+  ul {
+    display: flex;
+    justify-content: center;
+    column-gap: fluid(12, 24);
+    align-items: center;
+    li {
+      a,
+      span {
+        color: #bfbfbf;
 
-  &__button {
-    padding: 13px 20px;
-    width: 100%;
-    max-width: 210px;
+        text-align: center;
+        font-size: rem(18);
+        font-weight: 600;
+        line-height: 1.55;
+      }
+      a {
+        &.prev,
+        &.next {
+          width: rem(32);
+          height: rem(32);
+          border-radius: 50%;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          svg {
+            pointer-events: none;
+            transition: color 0.3s ease;
+            color: var(--primary-100);
+          }
+
+          @include hover {
+            background-color: var(--primary-100);
+            svg {
+              color: #fff;
+            }
+          }
+        }
+        &.prev svg {
+          transform: rotate(180deg);
+        }
+      }
+      span {
+        &.current {
+          color: var(--primary-100);
+        }
+      }
+    }
   }
 }
