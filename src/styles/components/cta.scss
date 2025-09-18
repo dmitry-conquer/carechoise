@@ -4,6 +4,14 @@
   overflow: hidden;
   @include clamp("padding-top", 30, 70);
   @include clamp("padding-bottom", 30, 70);
+  &--no-decor {
+    .cta__image {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
 
   &__container {
     max-width: 1240px;

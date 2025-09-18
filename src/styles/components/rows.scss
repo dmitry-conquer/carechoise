@@ -16,6 +16,15 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
 
+  &--no-decor {
+    .row__image {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
   &:not(:last-child) {
     margin-bottom: 25px;
   }
