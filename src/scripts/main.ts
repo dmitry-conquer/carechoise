@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Sliders */
   Sliders?.init();
 
-  if (typeof mapData !== "undefined" && mapData.markers) {
-    new SvgMap(mapData.markers, mapData.areas || []);
+  if (typeof mapData !== "undefined") {
+    new SvgMap(mapData.markers || [], mapData.areas || []);
   }
 
   InitModals();
