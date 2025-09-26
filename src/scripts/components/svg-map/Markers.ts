@@ -49,9 +49,9 @@ export default class Markers {
 
     if (!title || !address || !phone) return;
 
-    title.textContent = content.title;
-    address.textContent = content.address;
-    phone.textContent = content.phone;
+    title.innerHTML = content.title;
+    address.innerHTML = content.address;
+    phone.innerHTML = content.phone;
 
     openModal("location-popup");
   }
