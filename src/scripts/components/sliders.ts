@@ -31,7 +31,7 @@ export const Sliders = {
         spaceBetween: 20,
         breakpoints: {
           0: {
-            slidesPerView: 1.2,
+            slidesPerView: 1.1,
           },
           480: {
             slidesPerView: 1.5,
@@ -48,6 +48,41 @@ export const Sliders = {
         },
         navigation: {
           nextEl: ".gradient-slider__button",
+        },
+      });
+    }
+
+    if (document.getElementById("base-slider")) {
+      //@ts-ignore
+      new Swiper("#base-slider", {
+        slidesPerView: 3,
+        speed: 800,
+        loop: false,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: ".base-slider__controls-button--next",
+          prevEl: ".base-slider__controls-button--prev",
+        },
+        pagination: {
+          el: ".base-slider__controls-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.1,
+          },
+          480: {
+            slidesPerView: 1.4,
+          },
+          576: {
+            slidesPerView: 2.1,
+          },
+          768: {
+            slidesPerView: 2.3,
+          },
+          992: {
+            slidesPerView: 3,
+          },
         },
       });
     }
