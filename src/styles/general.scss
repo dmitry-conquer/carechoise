@@ -163,7 +163,6 @@ body {
   h2 {
     font-weight: bold;
     color: var(--secondary);
-    font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
     @include clamp("font-size", 20, 30);
     margin-bottom: 12px;
@@ -177,7 +176,7 @@ body {
   }
 
   a {
-    padding: rem(20) rem(44);
+    padding: rem(13) rem(39);
     border-radius: 34px;
     background-color: var(--primary);
     color: #fff;
@@ -210,7 +209,8 @@ body {
 
   &_big-title {
     h2 {
-      @include clamp("font-size", 20, 40);
+      font-size: fluid(24, 43);
+      font-weight: 600;
     }
   }
 
@@ -226,7 +226,7 @@ body {
 }
 
 .primary-button {
-  padding: rem(20) rem(55);
+  padding: rem(13) rem(40);
   border-radius: rem(34);
   background-color: var(--primary);
   color: #fff;
@@ -243,7 +243,20 @@ body {
       background-color: #fff;
     }
   }
+
+  &--white {
+    background-color: #fff;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+  
+    @include hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
+  }
 }
+
+
 
 .page-heading {
   padding: 0 20px;

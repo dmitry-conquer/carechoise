@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      {{> header}}
+      <div class="page-content">
+        <main>
+          <section class="hero hero--reverse">
+            <div class="hero__inner">
+              <div class="hero__container">
+                <div class="hero__image icont">
+                  <img data-aos="fade-up" src="/public/images/phil/hero.png" alt="" title="" />
+                </div>
+                <div data-aos="fade-up" class="hero__content">
+                  <h2 class="gradient-text">
+                    Trusted Home Care <br />
+                    Agency in Philadelphia, PA
+                  </h2>
+                  <p>
+                    At CareChoice, we believe the best care often comes from the people you already know and trust. Since 2004,
+                    thousands of families across Pennsylvania have chosen us to help their loved ones remain safe and comfortable
+                    at home. We make it possible for family members and friends to become paid caregivers, while also providing
+                    professional, qualified staff whenever extra support is needed.
+                  </p>
+                  <div class="hero__buttons">
+                    <a href="#" class="primary-button">Call us (xxx) xxx-xxxx</a>
+                    <a href="#" class="primary-button primary-button--white">Request a Call</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+      {{> footer}} {{> modal}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script type="module" src="../src/scripts/main.ts"></script>
+  </body>
+</html>
