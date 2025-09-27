@@ -6,7 +6,7 @@
   &__container {
     max-width: rem(1425);
     margin: 0 auto;
-    padding: fluid(80, 125) 0;
+    padding: fluid(80, 125) rem(20);
     border-radius: rem(37);
     overflow: hidden;
     position: relative;
@@ -49,5 +49,31 @@
     font-weight: 600;
     line-height: 1.6;
     text-transform: uppercase;
+  }
+
+  &__text {
+    color: #fff;
+    font-size: rem(18);
+    line-height: 1.3;
+    text-align: center;
+    max-width: rem(677);
+  }
+
+  &__buttons {
+    margin-top: rem(12);
+    display: flex;
+    gap: fluid(12, 24);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include small {
+      flex-direction: column;
+      a,
+      button {
+        width: 100%;
+        max-width: rem(400);
+      }
+    }
   }
 }
