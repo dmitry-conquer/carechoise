@@ -1,7 +1,6 @@
 @use "../helpers" as *;
 
 .corner-grid {
-  padding-block: fluid(40, 80);
 
   &__container {
     display: flex;

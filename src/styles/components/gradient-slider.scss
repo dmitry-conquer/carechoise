@@ -1,8 +1,6 @@
 @use "../helpers" as *;
 
 .gradient-slider {
-  padding-block: fluid(40, 80);
-
   &__container {
     max-width: rem(1200);
     display: flex;

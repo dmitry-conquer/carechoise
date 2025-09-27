@@ -28,22 +28,26 @@ export const Sliders = {
       new Swiper("#gradient-slider", {
         slidesPerView: 3.55,
         speed: 800,
-        spaceBetween: 20,
         breakpoints: {
           0: {
             slidesPerView: 1.1,
+            spaceBetween: 10,
           },
           480: {
             slidesPerView: 1.5,
+            spaceBetween: 20,
           },
           576: {
             slidesPerView: 2.2,
+            spaceBetween: 20,
           },
           640: {
             slidesPerView: 2.5,
+            spaceBetween: 20,
           },
           768: {
             slidesPerView: 3.55,
+            spaceBetween: 20,
           },
         },
         navigation: {
@@ -58,7 +62,6 @@ export const Sliders = {
         slidesPerView: 3,
         speed: 800,
         loop: false,
-        spaceBetween: 20,
         navigation: {
           nextEl: ".base-slider__controls-button--next",
           prevEl: ".base-slider__controls-button--prev",
@@ -70,19 +73,62 @@ export const Sliders = {
         breakpoints: {
           0: {
             slidesPerView: 1.1,
+            spaceBetween: 10,
           },
           480: {
             slidesPerView: 1.4,
+            spaceBetween: 20,
           },
           576: {
             slidesPerView: 2.1,
+            spaceBetween: 20,
           },
           768: {
             slidesPerView: 2.3,
+            spaceBetween: 20,
           },
           992: {
             slidesPerView: 3,
+            spaceBetween: 20,
           },
+        },
+      });
+    }
+
+    if (document.getElementById("steps-slider")) {
+      //@ts-ignore
+      new Swiper("#steps-slider", {
+        slidesPerView: 3.55,
+        speed: 800,
+        breakpoints: {
+          0: {
+            slidesPerView: 1.1,
+            spaceBetween: 10,
+          },
+          480: {
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+          },
+          576: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 2.5,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3.55,
+            spaceBetween: 20,
+          },
+        },
+        navigation: {
+          nextEl: ".steps-slider__controls-button--next",
+          prevEl: ".steps-slider__controls-button--prev",
+        },
+        pagination: {
+          el: ".steps-slider__controls-pagination",
+          clickable: true,
         },
       });
     }

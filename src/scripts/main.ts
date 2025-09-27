@@ -70,4 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     googleMap();
   }
+
+  /* Steps Slider Z-Index Fix */
+  const stepsSlides = document.querySelectorAll(".steps-slider__slide");
+  let zIndex = stepsSlides.length;
+  stepsSlides.forEach(slide => {
+    (slide as HTMLElement).style.zIndex = zIndex.toString();
+    zIndex--;
+  });
 });
