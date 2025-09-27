@@ -143,12 +143,11 @@
 
     @include small {
       flex-direction: column;
-    }
-
-    a,
-    button {
-      width: 100%;
-      max-width: rem(400);
+      a,
+      button {
+        width: 100%;
+        max-width: rem(400);
+      }
     }
   }
 }

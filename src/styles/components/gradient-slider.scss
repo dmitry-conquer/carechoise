@@ -1,0 +1,54 @@
+@use "../helpers" as *;
+
+.gradient-slider {
+  padding-block: fluid(40, 80);
+
+  &__container {
+    max-width: rem(1200);
+    display: flex;
+    position: relative;
+    gap: fluid(24, 40);
+
+    @include medium {
+      flex-direction: column;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: rem(400);
+      height: 100%;
+      top: 0;
+      right: rem(-360);
+      background: linear-gradient(270deg, #fff 72.5%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+      z-index: 3;
+
+      @include medium {
+        background: none;
+      }
+    }
+  }
+
+  &__header {
+    flex: 0 0 rem(210);
+
+    @include medium {
+      flex: 0 1 auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(16);
+  }
+
+  &__slider {
+    overflow: hidden;
+    margin-right: rem(-100);
+
+    @include medium {
+      margin-right: 0;
+      overflow: visible;
+    }
+  }
+}
