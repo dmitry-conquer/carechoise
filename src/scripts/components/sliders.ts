@@ -46,6 +46,9 @@ export const Sliders = {
             slidesPerView: 3.55,
           },
         },
+        navigation: {
+          nextEl: ".gradient-slider__button",
+        },
       });
     }
   },

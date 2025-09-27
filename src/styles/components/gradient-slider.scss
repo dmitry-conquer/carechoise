@@ -51,4 +51,21 @@
       overflow: visible;
     }
   }
+
+  &__button {
+    position: absolute;
+    bottom: 16%;
+    right: rem(65);
+    z-index: 3;
+    transition: all 0.3s ease;
+
+    @include medium {
+      display: none;
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
 }
