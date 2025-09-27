@@ -7,13 +7,13 @@ html {
   --yellow: #fff9f2;
   --gray-dark: #434343;
   --gray-light: #707070;
+  --gray-lightest: #d2d2d2;
 
   scrollbar-gutter: stable;
 }
 
 body {
   font-family: "Outfit", sans-serif;
-  // font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: var(--gray-light);
   max-width: 100%;
@@ -248,15 +248,13 @@ body {
     background-color: #fff;
     color: var(--primary);
     border: 1px solid var(--primary);
-  
+
     @include hover {
       background-color: var(--primary);
       color: #fff;
     }
   }
 }
-
-
 
 .page-heading {
   padding: 0 20px;
@@ -271,7 +269,6 @@ body {
 .heading-lg,
 .heading-md {
   color: #434343;
-  font-family: Outfit;
   font-weight: 600;
 }
 
@@ -291,6 +288,12 @@ body {
 .heading-md {
   font-size: fluid(20, 25);
   line-height: 1.2;
+}
+.heading-sm {
+  font-size: fluid(18, 20);
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--gray-dark);
 }
 
 .search-title {
