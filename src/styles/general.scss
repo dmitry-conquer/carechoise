@@ -201,6 +201,10 @@ body {
     li {
       list-style: disc;
 
+      strong {
+        font-size: fluid(16, 26);
+      }
+
       &::marker {
         font-size: 16px;
       }

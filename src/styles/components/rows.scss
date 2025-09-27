@@ -5,16 +5,20 @@
   @include clamp("padding-bottom", 30, 50);
 
   &__container {
-    max-width: 1180px;
+    max-width: rem(1220);
     margin: 0 auto;
     padding: 0 20px;
   }
 }
 
 .row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
+  gap: fluid(24, 64);
+  @include small {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
 
   &--no-decor {
     .row__image {
@@ -25,14 +29,23 @@
     }
   }
 
+  &--reverse {
+    flex-direction: row-reverse;
+    @include small {
+      flex-direction: column;
+    }
+  }
+
   &:not(:last-child) {
-    margin-bottom: 25px;
+    margin-bottom: rem(26);
   }
 
   &:nth-child(even) {
+    flex-direction: row-reverse;
+    @include small {
+      flex-direction: column-reverse;
+    }
     .row__image {
-      order: 2;
-
       img {
         margin-left: auto;
       }
@@ -40,29 +53,15 @@
       &::after {
         transform: translateX(40%);
       }
-      @include small {
-        order: 2;
-      }
     }
-
-    .row__content {
-      order: 1;
-      @include small {
-        order: 1;
-      }
-    }
-  }
-  @include small {
-    grid-template-columns: 1fr;
-    row-gap: 25px;
   }
 
   &__image {
     position: relative;
-    order: 1;
-    @include small {
-      order: 2;
+    flex: 0 1 rem(586);
 
+    @include small {
+      flex: 0 1 auto;
       img {
         width: 100%;
       }
@@ -99,12 +98,12 @@
   }
 
   &__content {
+    flex: 0 1 rem(530);
     position: relative;
     z-index: 2;
-    order: 2;
-    padding: 0 20px;
+
     @include small {
-      order: 1;
+      flex: 0 1 auto;
     }
   }
 }
