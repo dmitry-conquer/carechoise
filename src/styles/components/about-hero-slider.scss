@@ -14,11 +14,11 @@
   &__slider {
     overflow: hidden;
     cursor: ns-resize;
-    height: rem(374);
+    height: rem(400) !important;
 
     @include x-small {
       cursor: ew-resize;
-      height: auto;
+      height: auto !important;
     }
   }
   &__wrapper {

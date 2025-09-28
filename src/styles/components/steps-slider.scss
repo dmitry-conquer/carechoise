@@ -34,7 +34,7 @@
     overflow: hidden;
     margin-right: rem(-100);
 
-    @include medium {
+    @include x-large {
       margin-right: 0;
       overflow: visible;
     }

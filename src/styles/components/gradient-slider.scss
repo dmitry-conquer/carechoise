@@ -7,7 +7,7 @@
     position: relative;
     gap: fluid(24, 40);
 
-    @include medium {
+    @include x-large {
       flex-direction: column;
     }
 
@@ -31,7 +31,7 @@
   &__header {
     flex: 0 0 rem(210);
 
-    @include medium {
+    @include x-large {
       flex: 0 1 auto;
     }
   }
@@ -43,10 +43,15 @@
   &__slider {
     overflow: hidden;
     margin-right: rem(-100);
+    width: 100%;
 
-    @include medium {
+    @include x-large {
       margin-right: 0;
       overflow: visible;
+
+    }
+
+    @include medium {
     }
   }
 
@@ -56,6 +61,10 @@
     right: rem(65);
     z-index: 3;
     transition: all 0.3s ease;
+
+    @include x-large {
+      right: 0;
+    }
 
     @include medium {
       display: none;
