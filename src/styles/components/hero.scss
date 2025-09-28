@@ -15,6 +15,22 @@
       flex: 0 0 rem(575) !important;
       max-width: 100% !important;
     }
+
+    @media (max-width: rem(1300)) {
+      .hero__image {
+        bottom: rem(-60);
+      }
+      .hero__image img{
+        max-width: 80%;
+        margin-left: auto;
+      }
+    }
+
+    @include large {
+      .hero__content {
+        flex: 0 1 auto !important;
+      }
+    }
   }
 
   &--reverse {
@@ -41,6 +57,10 @@
       bottom: rem(-77);
       max-width: rem(777) !important;
       margin-bottom: 0 !important;
+
+      @include large {
+        max-width: rem(620) !important;
+      }
 
       @include medium {
         display: none;
@@ -82,15 +102,15 @@
     @include medium {
       flex: 0 1 auto;
       margin-bottom: rem(-80);
+      max-width: 100%;
+
       img {
         margin: 0 -30px;
         max-width: 120%;
         width: 120%;
       }
     }
-    @include medium {
-      max-width: 100%;
-    }
+
     @include small {
       margin-bottom: 0;
     }
@@ -145,11 +165,23 @@
     gap: fluid(16, 24);
     align-items: center;
 
-    @include small {
+    @include large {
       flex-direction: column;
       a,
       button {
         width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    @include medium {
+      flex-direction: row;
+    }
+
+    @include small {
+      flex-direction: column;
+      a,
+      button {
         max-width: rem(400);
       }
     }

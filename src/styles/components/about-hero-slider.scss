@@ -16,6 +16,10 @@
     cursor: ns-resize;
     height: rem(400) !important;
 
+    @include large {
+      height: auto !important;
+    }
+
     @include x-small {
       cursor: ew-resize;
       height: auto !important;
