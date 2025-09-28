@@ -27,6 +27,7 @@ export default class Map {
   private options: TypeMapOptions;
   private mapSettings: any;
   private map: any;
+  private tooltip: HTMLElement | null = null;
   constructor(options: TypeMapOptions) {
     this.options = options;
     this.mapSettings = {
@@ -80,6 +81,44 @@ export default class Map {
     return array;
   }
 
+  private createTooltip(): HTMLElement {
+    const tooltip = document.createElement('div');
+    tooltip.id = 'state-tooltip';
+    tooltip.style.cssText = `
+      pointer-events: none;
+      position: fixed;
+      font-weight: 700;
+      font-size: clamp(1.125rem, .9047rem + .94vw, 1.75rem);
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 12px 40px;
+      z-index: 20;
+      box-shadow: #0000004d 0 19px 38px, #00000038 0 15px 12px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      white-space: nowrap;
+    `;
+    document.body.appendChild(tooltip);
+    return tooltip;
+  }
+
+  private showTooltip(stateName: string, x: number, y: number): void {
+    if (!this.tooltip) {
+      this.tooltip = this.createTooltip();
+    }
+    
+    this.tooltip.textContent = stateName;
+    this.tooltip.style.left = `${x - 10}px`;
+    this.tooltip.style.top = `${y - 63}px`;
+    this.tooltip.style.opacity = '1';
+  }
+
+  private hideTooltip(): void {
+    if (this.tooltip) {
+      this.tooltip.style.opacity = '0';
+    }
+  }
+
   private loadMap(): void {
     const loader = new Loader({
       apiKey: this.options.apiKey,
@@ -118,6 +157,7 @@ export default class Map {
 
       this.map.data.addListener("mouseover", (event: any) => {
         const stateCode = event.feature.getProperty("STUSPS");
+        const stateName = event.feature.getProperty("NAME");
         const statesWithBlueColor = this.splitString(this.options.activeLocations);
         
         if (statesWithBlueColor.includes(stateCode)) {
@@ -126,6 +166,25 @@ export default class Map {
             strokeWeight: 2,
             strokeColor: "#fff",
           });
+        }
+        
+        // Показуємо тултіп з назвою штату для всіх штатів
+        const mouseEvent = event.domEvent;
+        if (mouseEvent) {
+          this.showTooltip(stateName, mouseEvent.clientX, mouseEvent.clientY);
+        }
+      });
+
+      // Додаємо обробник для оновлення позиції тултіпа при русі миші
+      this.map.data.addListener("mousemove", (event: any) => {
+        const stateName = event.feature.getProperty("NAME");
+        
+        // Оновлюємо позицію тултіпа для всіх штатів, якщо тултіп видимий
+        if (this.tooltip && this.tooltip.style.opacity === '1') {
+          const mouseEvent = event.domEvent;
+          if (mouseEvent) {
+            this.showTooltip(stateName, mouseEvent.clientX, mouseEvent.clientY);
+          }
         }
       });
 
@@ -140,6 +199,9 @@ export default class Map {
             strokeColor: "#fff",
           });
         }
+        
+        // Приховуємо тултіп для всіх штатів
+        this.hideTooltip();
       });
     });
     loader.importLibrary("marker").then(({ AdvancedMarkerElement }) => {
@@ -166,6 +228,13 @@ export default class Map {
       const mapZoom = this.getZoom();
       this.map.setZoom(mapZoom);
     });
+  }
+
+  public destroy(): void {
+    if (this.tooltip && this.tooltip.parentNode) {
+      this.tooltip.parentNode.removeChild(this.tooltip);
+      this.tooltip = null;
+    }
   }
 
   private handleStateClick(stateCode: string, stateName: string): void {
