@@ -23,12 +23,8 @@
   }
 
   &__logo {
-    max-width: fluid(168, 250);
+    max-width: fluid(220, 337);
     margin-right: auto;
-
-    @media (max-width: 1072px) {
-      max-width: rem(200);
-    }
   }
 
   &__logo-image {

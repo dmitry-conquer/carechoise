@@ -136,7 +136,7 @@ body {
 .sub-title {
   color: var(--secondary);
   text-transform: uppercase;
-  @include clamp("font-size", 25, 35);
+  font-size: fluid(25, 30);
   font-weight: 600;
 }
 

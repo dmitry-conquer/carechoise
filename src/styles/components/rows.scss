@@ -1,8 +1,7 @@
 @use "../helpers" as *;
 
 .rows {
-  @include clamp("padding-top", 30, 50);
-  @include clamp("padding-bottom", 30, 50);
+  padding-block: fluid(40, 70);
 
   &__container {
     max-width: rem(1220);
