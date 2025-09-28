@@ -135,7 +135,13 @@
       }
     }
   }
-
+  &__title {
+    font-size: fluid(24, 43);
+    font-weight: 600;
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin-bottom: rem(16);
+  }
   &__buttons {
     margin-top: fluid(16, 24);
     display: flex;
