@@ -2,6 +2,7 @@
 
 .hero {
   margin-bottom: rem(40);
+  margin-top: rem(50);
   @include large {
     margin-top: rem(21);
   }
@@ -32,6 +33,7 @@
       right: rem(-71);
       bottom: rem(-77);
       max-width: rem(777) !important;
+      margin-bottom: 0 !important;
 
       @include medium {
         display: none;
@@ -43,6 +45,7 @@
     padding: 0 rem(20);
   }
   &__container {
+    background-color: var(--yellow);
     max-width: rem(1425);
     margin: 0 auto;
     border-radius: rem(54);
@@ -57,23 +60,6 @@
       padding: rem(38) rem(30) 0;
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: 70px;
-      left: 0;
-      background-color: var(--yellow);
-      border-radius: 54px;
-      width: 100%;
-      height: 78%;
-      @include medium {
-        top: 20px;
-        height: 100%;
-      }
-      @include medium {
-        display: none;
-      }
-    }
     @include medium {
       flex-direction: column-reverse;
       align-items: flex-start;
@@ -81,13 +67,14 @@
   }
 
   &__image {
-    flex: 0 1 655px;
+    flex: 0 1 rem(655);
     position: relative;
     z-index: 2;
+    margin-bottom: rem(-70);
+
     @include medium {
       flex: 0 1 auto;
-      max-width: 70%;
-      margin: 0 auto;
+      margin-bottom: rem(-80);
       img {
         margin: 0 -30px;
         max-width: 120%;
@@ -96,6 +83,9 @@
     }
     @include medium {
       max-width: 100%;
+    }
+    @include small {
+      margin-bottom: 0;
     }
   }
 

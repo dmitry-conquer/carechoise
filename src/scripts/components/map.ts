@@ -21,6 +21,7 @@ type TypeMapOptions = {
   geoJsonUrl: string;
   activeLocations: string;
   stateUrlMapping?: { [key: string]: string };
+  comingSoon: string;
 };
 
 export default class Map {
@@ -48,7 +49,12 @@ export default class Map {
   }
 
   private hasValidProperties(obj: TypeMapOptions) {
-    return Object.values(obj).every(value => value !== null && value !== undefined && value !== "");
+    return Object.entries(obj).every(([key, value]) => {
+      if (key === 'comingSoon') {
+        return value !== null && value !== undefined;
+      }
+      return value !== null && value !== undefined && value !== "";
+    });
   }
   public init(): void {
     if (!this.hasValidProperties(this.options)) {
@@ -87,8 +93,6 @@ export default class Map {
     tooltip.style.cssText = `
       pointer-events: none;
       position: fixed;
-      font-weight: 700;
-      font-size: clamp(1.125rem, .9047rem + .94vw, 1.75rem);
       background-color: #fff;
       border-radius: 8px;
       padding: 12px 40px;
@@ -97,17 +101,37 @@ export default class Map {
       opacity: 0;
       transition: opacity 0.2s ease;
       white-space: nowrap;
+      text-align: center;
     `;
     document.body.appendChild(tooltip);
     return tooltip;
   }
 
-  private showTooltip(stateName: string, x: number, y: number): void {
+  private showTooltip(stateName: string, x: number, y: number, stateCode?: string): void {
     if (!this.tooltip) {
       this.tooltip = this.createTooltip();
     }
     
-    this.tooltip.textContent = stateName;
+    const comingSoonStates = this.options.comingSoon ? this.splitString(this.options.comingSoon) : [];
+    const isComingSoon = stateCode && comingSoonStates.length > 0 && comingSoonStates.includes(stateCode);
+    
+    if (isComingSoon) {
+      this.tooltip.innerHTML = `
+        <div style="font-weight: 700; font-size: clamp(1.125rem, .9047rem + .94vw, 1.75rem); line-height: 1.2;">
+          ${stateName}
+        </div>
+        <div style="font-weight: 400; font-size: clamp(0.75rem, .6rem + .5vw, 1rem); margin-top: 4px; color: #666;">
+          Coming Soon
+        </div>
+      `;
+    } else {
+      this.tooltip.innerHTML = `
+        <div style="font-weight: 700; font-size: clamp(1.125rem, .9047rem + .94vw, 1.75rem);">
+          ${stateName}
+        </div>
+      `;
+    }
+    
     this.tooltip.style.left = `${x - 10}px`;
     this.tooltip.style.top = `${y - 63}px`;
     this.tooltip.style.opacity = '1';
@@ -171,19 +195,20 @@ export default class Map {
         // Показуємо тултіп з назвою штату для всіх штатів
         const mouseEvent = event.domEvent;
         if (mouseEvent) {
-          this.showTooltip(stateName, mouseEvent.clientX, mouseEvent.clientY);
+          this.showTooltip(stateName, mouseEvent.clientX, mouseEvent.clientY, stateCode);
         }
       });
 
       // Додаємо обробник для оновлення позиції тултіпа при русі миші
       this.map.data.addListener("mousemove", (event: any) => {
         const stateName = event.feature.getProperty("NAME");
+        const stateCode = event.feature.getProperty("STUSPS");
         
         // Оновлюємо позицію тултіпа для всіх штатів, якщо тултіп видимий
         if (this.tooltip && this.tooltip.style.opacity === '1') {
           const mouseEvent = event.domEvent;
           if (mouseEvent) {
-            this.showTooltip(stateName, mouseEvent.clientX, mouseEvent.clientY);
+            this.showTooltip(stateName, mouseEvent.clientX, mouseEvent.clientY, stateCode);
           }
         }
       });

@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
           markers: acfOptions.gmapMarkers,
           geoJsonUrl: acfOptions.gmapCoords,
           activeLocations: acfOptions.gmapHighlightedAreas,
+          comingSoon: acfOptions.gmapComingStates,
         });
         map.init();
       }
