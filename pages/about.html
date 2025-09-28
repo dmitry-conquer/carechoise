@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css" />
     <title>About page</title>
   </head>
   <body>
@@ -11,25 +12,52 @@
       {{> header}}
       <div class="page-content">
         <main>
-          <div data-aos="fade-up" data-aos-delay="400" class="page-heading main-title">
-            <h1>About</h1>
+          <div class="page-heading page-heading--bottom main-title">
+            <div class="page-heading__container">
+              <h1 class="gradient-text">ABOUT US</h1>
+            </div>
           </div>
-          <section class="hero">
-            <div class="hero__container">
-              <div data-aos="fade-up" data-aos-delay="200" class="hero__image icont">
-                <img src="/public/images/about-hero.png" alt="" title="" />
-              </div>
-              <div data-aos="fade-up" class="hero__content column-content column-content_big-title column-content_big-text">
-                <h2>
-                  Your care. <br />
-                  Your choice. <br />
-                  Our Commitment.
-                </h2>
-                <p>
-                  At CareChoice we believe that family caregivers are the backbone of our communities. You dedicate your time and
-                  energy to providing the best care for your loved ones, often juggling multiple responsibilities. We’re here to
-                  support you every step of the way.
-                </p>
+          <section class="hero hero--reverse hero--slider">
+            <div class="hero__inner">
+              <div class="hero__container">
+                <div class="hero__image icont" id="about-hero-images">
+                  <img data-aos="fade-up" src="/public/images/about-slide1.png" alt="" title="" />
+                  <img data-aos="fade-up" src="/public/images/about-slide2.png" alt="" title="" />
+                </div>
+                <div data-aos="fade-up" class="hero__content">
+                  <div class="hero__slider-outer about-hero-slider">
+                    <div class="hero__slider about-hero-slider__slider swiper-slider" id="about-hero-slider">
+                      <div class="about-hero-slider__wrapper swiper-wrapper">
+                        <div class="about-hero-slider__slide swiper-slide">
+                          <h2 class="gradient-text">Our Story:</h2>
+                          <h3 class="about-hero-slider__sub-title heading-lg">
+                            From Local Roots <br />
+                            to Nationwide Impact
+                          </h3>
+                          <p>
+                            At CareChoice we believe that family caregivers are the backbone of our communities. You dedicate your
+                            time and energy to providing the best care for your loved ones, often juggling multiple
+                            responsibilities. We’re here to support you every step of the way.
+                          </p>
+                        </div>
+                        <div class="about-hero-slider__slide swiper-slide">
+                          <p>
+                            As our reputation for compassionate, participant-centered care grew, we expanded throughout
+                            Pennsylvania—building lasting community ties and refining our approach to meet the diverse needs of
+                            every family we served. Over the years, thousands of families have placed their trust in CareChoice,
+                            relying on us to provide the highest standard of care and support.
+                          </p>
+                          <p>
+                            Today, CareChoice proudly supports families in multiple states. With over two decades of experience,
+                            we continue to deliver exceptional care while honoring each individual’s independence, dignity, choice
+                            and right to remain at home.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="about-hero-slider__pagination pagination"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -40,7 +68,7 @@
                 <div data-aos="fade-up" data-aos-delay="200" class="row__image">
                   <img src="/public/images/aboutrow1.png" alt="" title="" />
                 </div>
-                <div data-aos="fade-up"  class="row__content column-content column-content_big-text">
+                <div data-aos="fade-up" class="row__content column-content column-content_big-text">
                   <h2>Our Mission</h2>
                   <p>
                     Our mission is simple: to empower family caregivers by providing reliable support and resources. We understand
@@ -131,6 +159,7 @@
       </div>
       {{> footer}}
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js"></script>
     <script type="module" src="../src/scripts/main.ts"></script>
   </body>
 </html>

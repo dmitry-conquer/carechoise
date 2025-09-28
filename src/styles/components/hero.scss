@@ -10,6 +10,13 @@
     margin-bottom: rem(20);
   }
 
+  &--slider {
+    .hero__content {
+      flex: 0 0 rem(575) !important;
+      max-width: 100% !important;
+    }
+  }
+
   &--reverse {
     .hero__container {
       flex-direction: row-reverse;

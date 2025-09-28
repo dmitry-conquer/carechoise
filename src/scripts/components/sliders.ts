@@ -132,5 +132,61 @@ export const Sliders = {
         },
       });
     }
+
+    if (document.getElementById("about-hero-slider")) {
+      //@ts-ignore
+      const aboutHeroSlider = new Swiper("#about-hero-slider", {
+        slidesPerView: 1,
+        speed: 800,
+        direction: "vertical",
+        spaceBetween: 30,
+        autoHeight: true,
+
+        mousewheel: {
+          forceToAxis: true,
+          sensitivity: 1,
+        },
+        pagination: {
+          el: ".about-hero-slider__pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          0: {
+            direction: "horizontal",
+            spaceBetween: 0,
+          },
+          575.98: {
+            direction: "vertical",
+            spaceBetween: 30,
+          },
+        },
+        on: {
+          slideChange: function (this: any) {
+            const imagesContainer = document.getElementById("about-hero-images");
+            if (imagesContainer) {
+              const images = imagesContainer.querySelectorAll("img");
+              images.forEach(img => {
+                img.style.display = "none";
+              });
+              if (images[this.activeIndex]) {
+                images[this.activeIndex].style.display = "block";
+              }
+            }
+          },
+          init: function () {
+            const imagesContainer = document.getElementById("about-hero-images");
+            if (imagesContainer) {
+              const images = imagesContainer.querySelectorAll("img");
+              images.forEach(img => {
+                img.style.display = "none";
+              });
+              if (images[0]) {
+                images[0].style.display = "block";
+              }
+            }
+          },
+        },
+      });
+    }
   },
 };

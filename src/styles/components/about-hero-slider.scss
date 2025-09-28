@@ -1,0 +1,112 @@
+@use "../helpers" as *;
+
+.about-hero-slider {
+  position: relative;
+
+  h2 {
+    margin-bottom: rem(8);
+    background: linear-gradient(119deg, #ff5697 0.94%, #592f8a 64.81%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__slider {
+    overflow: hidden;
+    cursor: ns-resize;
+    height: rem(374);
+
+    @include x-small {
+      cursor: ew-resize;
+      height: auto;
+    }
+  }
+  &__wrapper {
+  }
+  &__sub-title {
+    margin-bottom: rem(12);
+  }
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include x-small {
+      padding-right: rem(20);
+    }
+  }
+  &__pagination {
+    position: absolute;
+    bottom: 0;
+    right: rem(-20) !important;
+    top: unset;
+    left: unset;
+    z-index: 20;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include large {
+      justify-content: center;
+    }
+
+    @include x-small {
+      position: static !important;
+      right: auto !important;
+      bottom: auto !important;
+      top: auto !important;
+      left: auto !important;
+      height: auto;
+      justify-content: center;
+      flex-direction: row;
+      margin-top: rem(20);
+    }
+
+    .swiper-pagination-bullet {
+      background-color: var(--primary);
+      width: rem(6);
+      height: rem(6);
+      opacity: 1;
+      transition: all 0.3s ease;
+      margin-bottom: rem(4) !important;
+
+      @include x-small {
+        margin-bottom: 0 !important;
+        margin-right: rem(8);
+      }
+    }
+    .swiper-pagination-bullet-active {
+      height: rem(48);
+      border-radius: rem(4);
+
+      @include x-small {
+        height: rem(6);
+        width: rem(20);
+        border-radius: rem(3);
+      }
+    }
+  }
+}
+
+#about-hero-images {
+
+  @include large {
+    display: none;
+  }
+  img {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
