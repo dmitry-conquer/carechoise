@@ -266,7 +266,7 @@ export default class Map {
     const stateUrlMapping: { [key: string]: string } = {
       CA: "https://carechoice.com/california/",
       TX: "https://carechoice.com/texas/",
-      FL: "https://carechoice.com/florida/",
+      FL: "https://ha-med.com/",
       NY: "https://carechoice.com/new-york/",
       PA: "https://carechoice.com/pennsylvania/",
       IL: "https://carechoice.com/illinois/",

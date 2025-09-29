@@ -1,20 +1,53 @@
 @use "../helpers" as *;
 
+#site-wrapper {
+  padding-top: rem(123);
+
+  @include x-large {
+    padding-top: rem(90);
+  }
+  @include small {
+    padding-top: rem(70);
+  }
+}
+
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
   height: rem(123);
   display: flex;
   z-index: 9999;
   width: 100%;
+  transition: transform 0.3s ease;
+  background-color: #fff;
+
+  &.is-scroll {
+    background-color: #ffffffac;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    height: rem(90);
+    animation: slideDown 0.3s ease-out;
+  }
+
   @include x-large {
     height: rem(90);
   }
   @include small {
     height: rem(70);
+
+    &.is-scroll {
+      height: rem(70);
+    }
   }
   &__container {
     width: 100%;
-    max-width: rem(1300);
+    max-width: rem(1465);
     margin: 0 auto;
     padding: 0 rem(20);
     display: flex;
@@ -70,7 +103,7 @@
     column-gap: rem(20);
     align-items: center;
 
-    @include x-large {  
+    @include x-large {
       flex-direction: column;
       row-gap: rem(16);
     }
@@ -184,7 +217,6 @@
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         }
         & > a:after {
-     
           transform: rotate(-180deg);
         }
       }

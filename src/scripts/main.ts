@@ -9,6 +9,7 @@ import { InitModals } from "./components/modal";
 import AdaptiveDOM from "./utils/AdaptiveDOM";
 import SvgMap from "./components/svg-map/Map";
 import AccordionCollection from "./components/accordion";
+import HeaderScroll from "./header-scroll";
 
 declare const mapData: {
   markers?: MarkerData[];
@@ -21,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Header */
   const header = new Header();
   header?.init();
+
+  /* Header Scroll */
+  new HeaderScroll();
 
   /* Sliders */
   Sliders?.init();

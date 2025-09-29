@@ -27,10 +27,14 @@
   }
 
   &__content {
-    padding: 0 20px;
-    flex: 0 1 543px;
+    padding: 0 rem(20);
+    flex: 0 1 rem(543);
     @include medium {
       flex: 0 1 auto;
+    }
+
+    .gradient-text {
+      white-space: nowrap;
     }
   }
 
