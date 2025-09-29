@@ -1,0 +1,9 @@
+@use "../helpers" as *;
+
+.location-map {
+  padding-top: fluid(40, 80);
+}
+
+.location-map__title {
+  margin-bottom: rem(20);
+}
