@@ -188,5 +188,27 @@ export const Sliders = {
         },
       });
     }
+
+    if (document.getElementById("cover-areas-slider")) {
+      //@ts-ignore
+      new Swiper("#cover-areas-slider", {
+        speed: 800,
+        spaceBetween: 16,
+        
+        navigation: {
+          nextEl: ".cover-areas__button",
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.1,
+            spaceBetween: 10,
+          },
+          480: {
+            slidesPerView: 'auto',
+            spaceBetween: 16,
+          },
+        },
+      });
+    }
   },
 };

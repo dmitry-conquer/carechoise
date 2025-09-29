@@ -4,18 +4,39 @@
   padding-top: rem(120);
 
   &__container {
+    position: relative;
     display: flex;
-    justify-content: space-between;
     gap: rem(24) rem(40);
+    max-width: rem(1360);
 
     @include medium {
       flex-direction: column;
     }
   }
 
+  &__button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    transition: all 0.3s ease;
+
+    @include medium {
+      top: 65%;
+      display: none;
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
   &__content {
     padding-top: rem(26);
     flex: 0 1 rem(250);
+    margin-right: fluid(80, 195);
 
     @include medium {
       flex: 0 1 auto;
@@ -29,19 +50,15 @@
   &__arrow {
   }
 
-  &__list {
-    flex: 0 1 rem(736);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: rem(16);
+  &__slider {
+    overflow: hidden;
 
     @include medium {
-      flex: 0 1 auto;
+      overflow: visible;
     }
+  }
 
-    @include small {
-      grid-template-columns: 1fr;
-    }
+  &__list {
   }
 
   &__item {
@@ -49,8 +66,14 @@
     overflow: hidden;
     border: rem(1) solid #d2d2d2;
     position: relative;
+    width: rem(360);
+    flex-shrink: 0;
 
-    &:hover {
+    @media (max-width: rem(480)) {
+      width: auto;
+    }
+
+    @include hover {
       .cover-areas__item-title {
         left: rem(24);
         bottom: calc(100% - rem(16));
@@ -83,6 +106,7 @@
   &__item-image {
     width: 100%;
     height: 100%;
+    height: rem(225);
     object-fit: cover;
 
     @include small {
