@@ -15,10 +15,15 @@
       background: linear-gradient(270deg, #fff 72.5%, rgba(255, 255, 255, 0) 100%);
       pointer-events: none;
       z-index: 3;
+      transition: opacity 0.3s ease;
 
       @include medium {
         background: none;
       }
+    }
+
+    &--end::after {
+      opacity: 0;
     }
   }
 

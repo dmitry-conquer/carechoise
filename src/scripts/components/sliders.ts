@@ -25,7 +25,7 @@ export const Sliders = {
 
     if (document.getElementById("gradient-slider")) {
       //@ts-ignore
-      new Swiper("#gradient-slider", {
+      const gradientSlider = new Swiper("#gradient-slider", {
         slidesPerView: 3.55,
         speed: 800,
         breakpoints: {
@@ -53,7 +53,22 @@ export const Sliders = {
         navigation: {
           nextEl: ".gradient-slider__button",
         },
+        on: {
+          reachEnd: function() {
+            const container = document.querySelector('.gradient-slider__container');
+            if (container) {
+              container.classList.add('gradient-slider__container--end');
+            }
+          },
+          fromEdge: function() {
+            const container = document.querySelector('.gradient-slider__container');
+            if (container) {
+              container.classList.remove('gradient-slider__container--end');
+            }
+          }
+        }
       });
+      
     }
 
     if (document.getElementById("base-slider")) {
@@ -97,7 +112,7 @@ export const Sliders = {
 
     if (document.getElementById("steps-slider")) {
       //@ts-ignore
-      new Swiper("#steps-slider", {
+      const stepsSlider = new Swiper("#steps-slider", {
         slidesPerView: 3.55,
         speed: 800,
         breakpoints: {
@@ -130,6 +145,20 @@ export const Sliders = {
           el: ".steps-slider__controls-pagination",
           clickable: true,
         },
+        on: {
+          reachEnd: function() {
+            const container = document.querySelector('.steps-slider__container');
+            if (container) {
+              container.classList.add('steps-slider__container--end');
+            }
+          },
+          fromEdge: function() {
+            const container = document.querySelector('.steps-slider__container');
+            if (container) {
+              container.classList.remove('steps-slider__container--end');
+            }
+          }
+        }
       });
     }
 
