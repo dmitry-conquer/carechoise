@@ -23,10 +23,14 @@
 
     &--prev {
       left: 0;
-      transform: translateY(-50%) rotate(180deg);
+      transform: translateY(-50%) translateX(0) rotate(180deg);
     }
     &--next {
       right: 0;
+    }
+
+    @include medium {
+      display: none;
     }
 
     &.swiper-button-disabled {
@@ -38,7 +42,7 @@
   &__content {
     padding-top: rem(26);
     flex: 0 1 rem(250);
-    margin-right: rem(40);
+    margin-right: rem(60);
 
     @include large {
       flex: 0 1 auto;
@@ -58,17 +62,20 @@
   }
 
   &__body {
+  }
+
+  &__slider {
+    width: 100%;
     overflow: hidden;
     position: relative;
     padding-inline: rem(15);
     margin-inline: rem(-15);
 
-    @include medium {
+    @include large {
       overflow: visible;
+      padding-inline: 0;
+      margin-inline: 0;
     }
-  }
-
-  &__slider {
   }
 
   &__list {
@@ -79,12 +86,8 @@
     overflow: hidden;
     border: rem(1) solid #d2d2d2;
     position: relative;
-    width: rem(360);
     flex-shrink: 0;
-
-    @media (max-width: rem(480)) {
-      width: auto;
-    }
+    width: 100%;
 
     @include hover {
       .cover-areas__item-title {
