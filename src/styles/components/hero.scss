@@ -20,7 +20,7 @@
       .hero__image {
         bottom: rem(-60);
       }
-      .hero__image img{
+      .hero__image img {
         max-width: 80%;
         margin-left: auto;
       }
@@ -170,18 +170,6 @@
       a,
       button {
         width: 100%;
-        max-width: 100%;
-      }
-    }
-
-    @include medium {
-      flex-direction: row;
-    }
-
-    @include small {
-      flex-direction: column;
-      a,
-      button {
         max-width: rem(400);
       }
     }
