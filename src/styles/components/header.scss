@@ -145,6 +145,8 @@
           transition: transform 0.3s ease;
 
           @include x-large {
+        font-weight: 600;
+
             background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke-width%3D%220%22%2F%3E%3Cg%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M5.707%209.71a1%201%200%200%200%200%201.415l4.892%204.887a2%202%200%200%200%202.828%200l4.89-4.89a1%201%200%201%200-1.414-1.415l-4.185%204.186a1%201%200%200%201-1.415%200L7.121%209.71a1%201%200%200%200-1.414%200%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E");
           }
         }
@@ -203,12 +205,137 @@
 
           @include x-large {
             color: #fff;
+            justify-content: center;
             &:hover {
               color: #fff;
             }
           }
         }
+
+        // Стилі для пунктів з підменю 2 рівня
+        .menu-item-has-children {
+          position: relative;
+          
+          & > a {
+            display: flex;
+            align-items: center;
+            column-gap: rem(4);
+            
+         
+            
+            &::after {
+              flex-shrink: 0;
+              content: "";
+              width: rem(18);
+              height: rem(18);
+              background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke-width%3D%220%22%2F%3E%3Cg%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M9%205l7%207-7%207%22%20stroke%3D%22%23707070%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+              transition: transform 0.3s ease;
+
+              @include x-large {
+                display: none; 
+              }
+            }
+          }
+
+          @media (hover: hover) and (pointer: fine) {
+            &:hover {
+              & > a:after {
+                background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke-width%3D%220%22%2F%3E%3Cg%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M9%205l7%207-7%207%22%20stroke%3D%22%23ff5697%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+                transform: translateX(2px);
+              }
+
+              // Показати sub-menu при hover
+              .sub-menu {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+              }
+            }
+          }
+        }
+
+        // Стилі для меню 2 рівня (sub-menu)
+        .sub-menu {
+          position: absolute;
+          top: 0;
+          left: 100%;
+          background-color: #fff;
+          border-radius: 5px;
+          min-width: rem(200);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          pointer-events: none;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+          @include x-large {
+            position: static;
+            opacity: 1;
+            max-height: 100%;
+            overflow: visible;
+            visibility: visible;
+            pointer-events: auto;
+            box-shadow: none !important;
+            background-color: transparent;
+            min-width: 100%;
+            text-align: left;
+            margin-left: rem(16); // Простий відступ для підлокацій
+            margin-top: rem(8);
+            display: block;
+          }
+
+          li {
+            padding: rem(5) rem(12);
+            &:first-child {
+              padding-top: rem(12);
+            }
+            &:last-child {
+              padding-bottom: rem(12);
+            }
+            @include x-large {
+              padding: rem(3) 0;
+              &:first-child {
+                padding-top: rem(0);
+              }
+              &:last-child {
+                padding-bottom: rem(8);
+              }
+            }
+          }
+
+          a {
+            font-size: rem(16);
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: var(--primary);
+            }
+
+            @include x-large {
+              color: rgba(255, 255, 255, 0.8); // Трохи прозорий білий
+              font-size: rem(15);
+              text-align: left;
+              font-weight: 400;
+              
+              // Простий маркер для підлокацій
+              &::before {
+                content: "•";
+                margin-right: rem(6);
+                color: rgba(255, 255, 255, 0.5);
+                font-size: rem(10);
+              }
+              
+              &:hover {
+                color: #fff;
+              }
+            }
+          }
+        }
       }
+
       &.is-active {
         & > ul {
           opacity: 1;

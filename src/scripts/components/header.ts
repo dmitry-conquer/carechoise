@@ -18,7 +18,7 @@ export class Header {
     this.settings = { ...this.defaults, ...options };
     this.button = document.getElementById(this.settings.buttonId) as HTMLButtonElement;
     this.menu = document.getElementById(this.settings.menuId) as HTMLButtonElement;
-    this.itemHasSubmenuElements = Array.from(this.menu.querySelectorAll(".menu-item-has-children"));
+    this.itemHasSubmenuElements = Array.from(this.menu.querySelectorAll(".menu-item-has-children:not(.sub-menu-item)"));
   }
   private preventInit(): boolean {
     if (this.button && this.menu) {
@@ -37,12 +37,14 @@ export class Header {
 
   private onDocumentClick = (e: MouseEvent): void => {
     const target = e.target as HTMLElement;
-    if (target.closest(this.button.id) || target.closest(this.menu.id) || target.closest(".menu-item-has-children")) return;
+    if (target.closest(this.button.id) || target.closest(this.menu.id) || target.closest(".menu-item-has-children:not(.sub-menu)")) return;
     this.itemHasSubmenuElements.forEach(menuItem => {
       const subMenu = menuItem.querySelector("ul") as HTMLElement;
       if (!subMenu) return;
       menuItem?.classList.remove("is-active");
       subMenu.style.maxHeight = "";
+
+      // На мобільних пристроях sub-menu завжди видимі
     });
   };
 
@@ -55,6 +57,8 @@ export class Header {
       if (currentIndex === index) {
         menuItem?.classList.toggle("is-active");
         subMenu.style.maxHeight = active ? "" : `${subMenu.scrollHeight}px`;
+
+        // На мобільних пристроях sub-menu завжди видимі, тому не керуємо ними
       } else {
         menuItem.classList.remove("is-active");
         subMenu.style.maxHeight = "";
@@ -78,7 +82,6 @@ export class Header {
     this.itemHasSubmenuElements.forEach((item, index) => {
       (item.querySelector(":scope > a") as HTMLElement | null)?.addEventListener("click", (event: MouseEvent) => {
         if (this.isTouchDevice) {
-          console.log(item);
           this.handleInteraction(index, event);
         }
       });
