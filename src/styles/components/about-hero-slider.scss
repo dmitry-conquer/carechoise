@@ -12,18 +12,6 @@
   }
 
   &__slider {
-    overflow: hidden;
-    cursor: ns-resize;
-    height: rem(400) !important;
-
-    @include large {
-      height: auto !important;
-    }
-
-    @include x-small {
-      cursor: ew-resize;
-      height: auto !important;
-    }
   }
   &__wrapper {
   }
@@ -34,6 +22,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    p {
+      font-size: fluid(16, 18);
+    }
 
     @include x-small {
       padding-right: rem(20);
@@ -94,7 +86,6 @@
 }
 
 #about-hero-images {
-
   @include large {
     display: none;
   }

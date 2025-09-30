@@ -9,22 +9,24 @@
     gap: rem(24) rem(40);
     max-width: rem(1360);
 
-    @include medium {
+    @include large {
       flex-direction: column;
     }
   }
 
   &__button {
     position: absolute;
-    right: 0;
     top: 50%;
     transform: translateY(-50%);
     z-index: 5;
     transition: all 0.3s ease;
 
-    @include medium {
-      top: 65%;
-      display: none;
+    &--prev {
+      left: 0;
+      transform: translateY(-50%) rotate(180deg);
+    }
+    &--next {
+      right: 0;
     }
 
     &.swiper-button-disabled {
@@ -36,26 +38,37 @@
   &__content {
     padding-top: rem(26);
     flex: 0 1 rem(250);
-    margin-right: fluid(80, 195);
+    margin-right: rem(40);
 
-    @include medium {
+    @include large {
       flex: 0 1 auto;
+      margin-bottom: rem(24);
     }
   }
 
   &__title {
     margin-bottom: fluid(30, 65);
+
+    @include large {
+      margin-bottom: rem(24);
+    }
   }
 
   &__arrow {
   }
 
-  &__slider {
+  &__body {
     overflow: hidden;
+    position: relative;
+    padding-inline: rem(15);
+    margin-inline: rem(-15);
 
     @include medium {
       overflow: visible;
     }
+  }
+
+  &__slider {
   }
 
   &__list {

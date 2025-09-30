@@ -194,9 +194,10 @@ export const Sliders = {
       new Swiper("#cover-areas-slider", {
         speed: 800,
         spaceBetween: 16,
-        
+
         navigation: {
-          nextEl: ".cover-areas__button",
+          nextEl: ".cover-areas__button--next",
+          prevEl: ".cover-areas__button--prev",
         },
         breakpoints: {
           0: {
@@ -204,7 +205,19 @@ export const Sliders = {
             spaceBetween: 10,
           },
           480: {
-            slidesPerView: 'auto',
+            slidesPerView: 1.3,
+            spaceBetween: 16,
+          },
+          576: {
+            slidesPerView: 1.6,
+            spaceBetween: 16,
+          },
+          768: {
+            slidesPerView: 2.6,
+            spaceBetween: 16,
+          },
+          840: {
+            slidesPerView: 3,
             spaceBetween: 16,
           },
         },
