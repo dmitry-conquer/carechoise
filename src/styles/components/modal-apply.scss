@@ -1,0 +1,19 @@
+@use "../helpers" as *;
+
+.modal-apply {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(16);
+
+    @include x-small {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+  }
+
+  &__button {
+  }
+}

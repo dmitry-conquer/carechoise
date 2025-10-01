@@ -13,6 +13,11 @@
   pointer-events: none;
   transition: all 0.3s ease;
   padding: rem(50) 0;
+  &--apply {
+    .modal__content {
+      padding: fluid(40, 60) rem(32);
+    }
+  }
 
   &--location {
     .modal__inner {
