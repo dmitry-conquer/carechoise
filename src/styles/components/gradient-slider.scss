@@ -46,8 +46,11 @@
   }
 
   &__slider {
+    position: relative;
     overflow: hidden;
     margin-right: rem(-100);
+    margin-left: rem(-16);
+    padding-left: rem(16);
     width: 100%;
 
     @include x-large {
@@ -62,9 +65,15 @@
   &__button {
     position: absolute;
     bottom: 16%;
-    right: rem(65);
     z-index: 3;
     transition: all 0.3s ease;
+    &--prev {
+      transform: rotate(180deg);
+      left: 0;
+    }
+    &--next {
+      right: rem(65);
+    }
 
     @include x-large {
       right: 0;

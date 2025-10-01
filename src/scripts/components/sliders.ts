@@ -51,7 +51,8 @@ export const Sliders = {
           },
         },
         navigation: {
-          nextEl: ".gradient-slider__button",
+          nextEl: ".gradient-slider__button--next",
+          prevEl: ".gradient-slider__button--prev",
         },
         on: {
           reachEnd: function() {
