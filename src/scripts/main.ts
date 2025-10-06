@@ -10,6 +10,7 @@ import AdaptiveDOM from "./utils/AdaptiveDOM";
 import SvgMap from "./components/svg-map/Map";
 import AccordionCollection from "./components/accordion";
 import HeaderScroll from "./header-scroll";
+import CityMap from "./components/city-map";
 
 declare const mapData: {
   markers?: MarkerData[];
@@ -50,6 +51,31 @@ document.addEventListener("DOMContentLoaded", () => {
     duration: 800,
     once: true,
   });
+
+  /* City Map */
+  if (document.getElementById("city-map")) {
+    async function initCityMap() {
+      //@ts-ignore
+      const response = await ApiService.get(`${ajax_obj.ajax_url}?action=get_map_data`);
+      if (response.success) {
+        const acfOptions = response.data;
+        const cityCoords = (document.querySelector("[data-city-coords]") as HTMLElement)?.dataset.cityCoords;
+        const zoom = (document.querySelector("[data-zoom]") as HTMLElement)?.dataset.zoom;
+        if (cityCoords) {
+          new CityMap({
+            apiKey: acfOptions.gmapApiKey,
+            center: {
+              lat: parseFloat(cityCoords.split(",")[0]),
+              lng: parseFloat(cityCoords.split(",")[1]),
+            },
+            zoom: zoom ? parseInt(zoom) : 13,
+          });
+        }
+      }
+    }
+
+    initCityMap();
+  }
 
   /* Map */
 
