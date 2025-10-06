@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
           el: "map",
           apiKey: acfOptions.gmapApiKey,
           mapId: acfOptions.gmapId,
-          markerClassName: "map-marker",
+          markerClassName: "map-marker-google",
           markers: acfOptions.gmapMarkers,
           geoJsonUrl: acfOptions.gmapCoords,
           activeLocations: acfOptions.gmapHighlightedAreas,

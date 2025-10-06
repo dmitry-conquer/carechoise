@@ -158,17 +158,15 @@ export default class CityMap {
     if (!this.map) return;
 
     this.loader.importLibrary("marker").then(({ AdvancedMarkerElement }) => {
-      const marker = new AdvancedMarkerElement({
+      const markerIcon: HTMLSpanElement = document.createElement("span") as HTMLSpanElement;
+      markerIcon.className = "map-marker-google";
+      markerIcon.title = "Office Location";
+
+      new AdvancedMarkerElement({
         map: this.map,
         position: this.options.marker,
-        title: "Location",
+        content: markerIcon,
       });
-
-      // Додаємо клас map-marker до маркера
-      const markerElement = marker.content as HTMLElement;
-      if (markerElement) {
-        markerElement.classList.add("map-marker");
-      }
     });
   }
 
