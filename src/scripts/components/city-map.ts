@@ -1,18 +1,26 @@
 import { Loader } from "@googlemaps/js-api-loader";
 
+type TypeCityMapOptions = {
+  apiKey: string;
+  mapId: string;
+  center: { lat: number; lng: number };
+  zoom: number;
+  marker: { lat: number; lng: number };
+};
+
 // Google Maps implementation for city-map
 export default class CityMap {
   private map: google.maps.Map | null = null;
   private mapElement: HTMLElement | null = null;
   private loader: Loader;
-  private options: { apiKey: string; center: { lat: number; lng: number }; zoom: number };
-  constructor(options: { apiKey: string; center: { lat: number; lng: number }; zoom: number }) {
+  private options: TypeCityMapOptions;
+  constructor(options: TypeCityMapOptions) {
     this.options = options;
 
     this.loader = new Loader({
       apiKey: this.options.apiKey,
       version: "weekly",
-      libraries: ["places"],
+      libraries: ["places", "marker"],
       language: "en",
       region: "US",
     });
@@ -32,9 +40,9 @@ export default class CityMap {
     }
 
     try {
-      // Load Google Maps API using importLibrary
       this.loader.importLibrary("maps").then(({ Map }) => {
         this.createMap(Map);
+        this.addMarker();
       });
     } catch (error) {
       console.error("Error loading Google Maps API:", error);
@@ -127,29 +135,43 @@ export default class CityMap {
     ];
 
     // Map options
-    const mapOptions: google.maps.MapOptions = {
+    const mapOptions: google.maps.MapOptions & { mapId?: string } = {
       center: this.options.center || { lat: 40.02187836742953, lng: -75.10518936959122 },
       zoom: this.options.zoom || 13,
       styles: mapStyles,
+      mapId: this.options.mapId,
       disableDefaultUI: true,
-      zoomControl: true,
+      zoomControl: false,
       mapTypeControl: false,
-      scaleControl: true,
+      scaleControl: false,
       streetViewControl: false,
       rotateControl: false,
       fullscreenControl: false,
-      scrollwheel: true,
+      scrollwheel: false,
       draggable: true,
     };
 
-    // Create map
     this.map = new Map(this.mapElement, mapOptions);
-
-    // Map is now initialized and ready
-    console.log("City map initialized successfully");
   }
 
-  // Public method to get map instance (for potential future use)
+  private addMarker(): void {
+    if (!this.map) return;
+
+    this.loader.importLibrary("marker").then(({ AdvancedMarkerElement }) => {
+      const marker = new AdvancedMarkerElement({
+        map: this.map,
+        position: this.options.marker,
+        title: "Location",
+      });
+
+      // Додаємо клас map-marker до маркера
+      const markerElement = marker.content as HTMLElement;
+      if (markerElement) {
+        markerElement.classList.add("map-marker");
+      }
+    });
+  }
+
   public getMap(): google.maps.Map | null {
     return this.map;
   }

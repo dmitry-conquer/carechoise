@@ -60,15 +60,21 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.success) {
         const acfOptions = response.data;
         const cityCoords = (document.querySelector("[data-city-coords]") as HTMLElement)?.dataset.cityCoords;
+        const marker = (document.querySelector("[data-marker]") as HTMLElement)?.dataset.marker;
         const zoom = (document.querySelector("[data-zoom]") as HTMLElement)?.dataset.zoom;
-        if (cityCoords) {
+        if (cityCoords && marker) {
           new CityMap({
             apiKey: acfOptions.gmapApiKey,
+            mapId: "719421de39d621e5ecda6f9c",
             center: {
               lat: parseFloat(cityCoords.split(",")[0]),
               lng: parseFloat(cityCoords.split(",")[1]),
             },
             zoom: zoom ? parseInt(zoom) : 13,
+            marker: {
+              lat: parseFloat(marker.split(",")[0]),
+              lng: parseFloat(marker.split(",")[1]),
+            },
           });
         }
       }
