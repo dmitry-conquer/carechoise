@@ -106,8 +106,9 @@ body {
 }
 
 .gradient-text {
-  background: rgb(255, 86, 151);
-  background: linear-gradient(330deg, rgba(89, 47, 138, 1) 27%, rgba(255, 86, 151, 1) 79%);
+  background: #ff5697;
+  background: linear-gradient(330deg, #592f8a 27%, #ff5697 79%);
+  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -199,8 +200,6 @@ body {
     padding-left: 20px;
 
     li {
-    
-
       list-style: disc;
 
       strong {
@@ -422,7 +421,6 @@ body {
     }
   }
 }
-
 
 .section-padding {
   padding-block: fluid(40, 70);

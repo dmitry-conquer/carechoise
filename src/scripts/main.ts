@@ -11,6 +11,7 @@ import SvgMap from "./components/svg-map/Map";
 import AccordionCollection from "./components/accordion";
 import HeaderScroll from "./header-scroll";
 import CityMap from "./components/city-map";
+import { HeadingAnim } from "./components/heading-anim";
 
 declare const mapData: {
   markers?: MarkerData[];
@@ -51,6 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
     duration: 800,
     once: true,
   });
+
+  /* Heading Animation */
+  const headingAnimElement = document.querySelector(".heading-anim-text") as HTMLElement;
+  if (headingAnimElement) {
+    const interval = parseInt(headingAnimElement.dataset.interval || "300");
+    const delay = parseInt(headingAnimElement.dataset.delay || "0");
+    new HeadingAnim(headingAnimElement, interval, delay);
+  }
 
   /* City Map */
   if (document.getElementById("city-map")) {

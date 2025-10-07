@@ -175,3 +175,14 @@
     }
   }
 }
+
+.heading-anim-text {
+  display: inline-block;
+  min-width: 11em;
+  vertical-align: top;
+  white-space: nowrap;
+  text-align: left;
+  .heading-anim-part {
+    display: none;
+  }
+}
