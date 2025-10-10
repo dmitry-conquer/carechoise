@@ -10,6 +10,7 @@ interface MarkerData {
     title: string;
     address: string;
     phone: string;
+    local_page: string;
   };
   image_src: string;
   area: string;

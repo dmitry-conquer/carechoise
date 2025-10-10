@@ -39,19 +39,21 @@ export default class Markers {
     return markerElement;
   }
 
-  private onMarkerClick(content: { title: string; address: string; phone: string }): void {
+  private onMarkerClick(content: { title: string; address: string; phone: string; local_page: string }): void {
     const container = document.getElementById("location-popup-container");
     if (!container) return;
 
     const title = container.querySelector("[data-location-title]") as HTMLElement;
     const address = container.querySelector("[data-location-address]") as HTMLElement;
     const phone = container.querySelector("[data-location-phone]") as HTMLElement;
+    const localPage = container.querySelector("[data-location-local-page]") as HTMLAnchorElement;
 
     if (!title || !address || !phone) return;
 
     title.innerHTML = content.title;
     address.innerHTML = content.address;
     phone.innerHTML = content.phone;
+    localPage.href = content.local_page || "/";
 
     openModal("location-popup");
   }

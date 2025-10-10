@@ -4,6 +4,11 @@
   &__content {
     display: flex;
     column-gap: rem(24);
+
+    @include x-small {
+      flex-direction: column;
+      row-gap: rem(20);
+    }
   }
 
   &__icon {
@@ -14,6 +19,7 @@
   }
 
   &__info {
+    flex-grow: 1;
   }
 
   &__title {

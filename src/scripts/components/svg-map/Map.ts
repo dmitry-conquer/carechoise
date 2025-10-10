@@ -46,7 +46,6 @@ export default class SvgMap {
 
   private fillAreas(areasData: string[]): void {
     if (!areasData) return;
-    console.log(areasData);
     this.areas.forEach(area => {
       const areaId = area.getAttribute("data-area");
       if (areaId && areasData.includes(areaId)) {
