@@ -1,0 +1,153 @@
+@use "../helpers" as *;
+
+.transfer {
+  padding-block: fluid(40, 80);
+
+  &__container {
+    max-width: rem(1370);
+    margin: 0 auto;
+    padding: 0 rem(20);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: rem(40);
+    gap: rem(24);
+    @include medium {
+      flex-direction: column-reverse;
+    }
+
+    &-content {
+    }
+    &-title {
+      font-size: fluid(32, 60);
+      font-weight: 700;
+      line-height: 1.3;
+      text-transform: uppercase;
+      margin-bottom: rem(22);
+      background: linear-gradient(129deg, #ff5697 39.33%, #592f8a 64.81%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    &-subtitle {
+      font-size: fluid(18, 28);
+      line-height: 1.2;
+      color: var(--gray-light);
+      display: flex;
+      align-items: center;
+      column-gap: rem(4);
+
+      &::after {
+        content: "";
+        flex: 0 0 rem(43);
+        height: rem(43);
+        position: relative;
+        top: rem(4);
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2244%22%20height%3D%2243%22%20viewBox%3D%220%200%2044%2043%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M43.707%2022.707a1%201%200%200%200%200-1.414l-6.364-6.364a1%201%200%200%200-1.414%201.414L41.586%2022l-5.657%205.657a1%201%200%200%200%201.414%201.414zM0%2022v1h43v-2H0z%22%20fill%3D%22%23de4e95%22%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        @include x-small {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    max-width: rem(337);
+  }
+
+  &__body {
+    display: flex;
+    gap: rem(32);
+    justify-content: space-between;
+
+    @include medium {
+      flex-direction: column;
+    }
+  }
+
+  &__features {
+    flex: 0 1 rem(536);
+
+    @include medium {
+      flex: 0 1 auto;
+    }
+
+    &-title {
+      color: var(--gray-dark);
+      font-size: fluid(26, 40);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: fluid(20, 34);
+    }
+    &-items {
+      display: flex;
+      flex-direction: column;
+      row-gap: fluid(16, 24);
+    }
+    &-item {
+      border-radius: rem(20);
+      border: rem(1) solid rgba(165, 165, 165, 0.4);
+      background: linear-gradient(119deg, #592f8a 0.94%, #592f8a 64.81%);
+      padding: rem(16) rem(24) rem(16) fluid(50, 90);
+      position: relative;
+      min-height: rem(76);
+      display: flex;
+      align-items: center;
+
+      &-text {
+        color: #fff;
+        font-size: fluid(20, 24);
+        font-weight: 600;
+        line-height: 1.25;
+
+        span {
+          font-size: fluid(24, 40);
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: fluid(16, 24);
+          transform: translateY(-50%);
+          width: fluid(24, 44);
+          height: fluid(24, 44);
+          background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2244%22%20height%3D%2244%22%20viewBox%3D%220%200%2044%2044%22%20fill%3D%22none%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M39.238%2022.004%2027.196%203.178h-7.77l11.888%2018.585c.09.143.09.322%200%20.465l-11.88%2018.594h7.762z%22%20fill%3D%22%23de4e95%22%2F%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M12.802%203.178h-7.77L16.92%2021.763c.09.143.09.322%200%20.465L5.04%2040.822h7.762l12.04-18.818z%22%20fill%3D%22%23de4e95%22%2F%3E%3C%2Fsvg%3E");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+      }
+    }
+  }
+
+  &__form {
+    flex: 0 1 rem(648);
+    padding: rem(32) rem(24);
+    border-radius: 18px;
+    background-color: var(--yellow);
+
+    @include medium {
+      flex: 0 1 auto;
+    }
+
+    &-title {
+      color: var(--gray-dark);
+      font-size: fluid(22, 32);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: rem(16);
+      text-align: center;
+    }
+    &-script {
+    }
+  }
+}
