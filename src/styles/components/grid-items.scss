@@ -3,12 +3,6 @@
 .grid-items {
   padding-block: fluid(40, 70);
 
-  &__container {
-    max-width: rem(1220);
-    margin: 0 auto;
-    padding: 0 rem(20);
-  }
-
   &__header {
     max-width: rem(950);
     margin: 0 auto;
