@@ -30,9 +30,19 @@
   }
 
   &--reverse {
-    flex-direction: row-reverse;
+    .row__image {
+      order: 2;
+    }
+    .row__content {
+      order: 1;
+    }
     @include small {
-      flex-direction: column;
+      .row__image {
+        order: 1;
+      }
+      .row__content {
+        order: 2;
+      }
     }
   }
 
@@ -40,27 +50,12 @@
     margin-bottom: rem(26);
   }
 
-  &:nth-child(even) {
-    flex-direction: row-reverse;
-    @include small {
-      flex-direction: column-reverse;
-    }
-    .row__image {
-      img {
-        margin-left: auto;
-      }
 
-      &::after {
-        transform: translateX(40%);
-      }
-    }
-  }
 
   &__image {
     position: relative;
 
     @include small {
-      flex: 0 1 auto;
       img {
         width: 100%;
       }
@@ -101,7 +96,6 @@
     z-index: 2;
 
     @include small {
-      flex: 0 1 auto;
     }
   }
 

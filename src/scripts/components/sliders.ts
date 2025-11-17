@@ -55,21 +55,20 @@ export const Sliders = {
           prevEl: ".gradient-slider__button--prev",
         },
         on: {
-          reachEnd: function() {
-            const container = document.querySelector('.gradient-slider__container');
+          reachEnd: function () {
+            const container = document.querySelector(".gradient-slider__container");
             if (container) {
-              container.classList.add('gradient-slider__container--end');
+              container.classList.add("gradient-slider__container--end");
             }
           },
-          fromEdge: function() {
-            const container = document.querySelector('.gradient-slider__container');
+          fromEdge: function () {
+            const container = document.querySelector(".gradient-slider__container");
             if (container) {
-              container.classList.remove('gradient-slider__container--end');
+              container.classList.remove("gradient-slider__container--end");
             }
-          }
-        }
+          },
+        },
       });
-      
     }
 
     if (document.getElementById("base-slider")) {
@@ -111,10 +110,11 @@ export const Sliders = {
       });
     }
 
-    if (document.getElementById("steps-slider")) {
+    const stepsSlider = document.getElementById("steps-slider");
+    if (stepsSlider) {
+      const slidesPerView = stepsSlider.dataset.slidesPerView || 3.55;
       //@ts-ignore
-      const stepsSlider = new Swiper("#steps-slider", {
-        slidesPerView: 3.55,
+      new Swiper("#steps-slider", {
         speed: 800,
         breakpoints: {
           0: {
@@ -134,7 +134,7 @@ export const Sliders = {
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 3.55,
+            slidesPerView: slidesPerView,
             spaceBetween: 20,
           },
         },
@@ -147,19 +147,19 @@ export const Sliders = {
           clickable: true,
         },
         on: {
-          reachEnd: function() {
-            const container = document.querySelector('.steps-slider__container');
+          reachEnd: function () {
+            const container = document.querySelector(".steps-slider__container");
             if (container) {
-              container.classList.add('steps-slider__container--end');
+              container.classList.add("steps-slider__container--end");
             }
           },
-          fromEdge: function() {
-            const container = document.querySelector('.steps-slider__container');
+          fromEdge: function () {
+            const container = document.querySelector(".steps-slider__container");
             if (container) {
-              container.classList.remove('steps-slider__container--end');
+              container.classList.remove("steps-slider__container--end");
             }
-          }
-        }
+          },
+        },
       });
     }
 
