@@ -165,9 +165,17 @@ body {
     font-weight: bold;
     color: var(--secondary);
     text-transform: uppercase;
-    @include clamp("font-size", 20, 30);
-    margin-bottom: 12px;
+    font-size: fluid(20, 30);
+    margin-bottom: rem(12);
     line-height: 1.2;
+  }
+
+  h3 {
+    color: #434343;
+    font-size: fluid(25, 35);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: fluid(12, 22);
   }
 
   p {
@@ -201,18 +209,10 @@ body {
 
     li {
       list-style: disc;
-
-      strong {
-        font-size: fluid(16, 26);
-      }
+      font-size: fluid(16, 23);
 
       &::marker {
         font-size: 16px;
-      }
-
-      span {
-        font-size: fluid(12, 16);
-        font-weight: 400;
       }
     }
   }
