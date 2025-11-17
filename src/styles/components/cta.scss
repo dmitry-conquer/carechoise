@@ -78,8 +78,7 @@
 }
 
 .simple-cta {
-  padding-top: fluid(30, 70);
-  padding-bottom: fluid(30, 60);
+  padding-block: fluid(30, 60);
   &--transparent {
     padding: 0;
 
@@ -106,9 +105,22 @@
     padding-left: rem(20);
     padding-right: rem(20);
 
+    a {
+      margin-top: fluid(24, 40);
+    }
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+
     h2 {
-      margin-bottom: rem(20);
+      font-weight: 700;
+      margin-bottom: rem(16);
       font-size: fluid(25, 30);
+      background: var(--gradient, linear-gradient(119deg, #ff5697 0.94%, #592f8a 64.81%));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
