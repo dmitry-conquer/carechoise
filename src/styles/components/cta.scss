@@ -100,10 +100,7 @@
     text-align: center;
     background-color: var(--yellow);
     border-radius: 37px;
-    padding-top: fluid(48, 90);
-    padding-bottom: fluid(48, 90);
-    padding-left: rem(20);
-    padding-right: rem(20);
+    padding: fluid(30, 60) rem(20);
 
     a {
       margin-top: fluid(12, 24);
