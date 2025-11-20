@@ -1,0 +1,63 @@
+@use "../helpers" as *;
+
+.form-section {
+  &__container {
+    display: flex;
+    align-items: stretch;
+    gap: rem(24) rem(10);
+
+    @include medium {
+      flex-direction: column;
+
+    }
+  }
+
+  &__content {
+    flex: 0 1 rem(512);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include medium {
+      flex: 0 1 auto;
+    }
+  }
+
+  &__header {
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: fluid(30, 43);
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: fluid(12, 24);
+  }
+
+  &__subtitle {
+    color: var(--gray-dark);
+    font-size: fluid(20, 25);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+    @include medium {
+      display: none;
+    }
+  }
+
+  &__form {
+    border-radius: rem(18);
+    background-color: var(--yellow);
+    padding: rem(24);
+    flex: 0 1 rem(648);
+    @include medium {
+      flex: 0 1 auto;
+    }
+  }
+}
