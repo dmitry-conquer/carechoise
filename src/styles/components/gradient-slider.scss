@@ -3,6 +3,9 @@
 .gradient-slider {
   &--header {
     .gradient-slider__footer {
+      position: relative;
+      z-index: 100;
+
       &-text {
         color: var(--gray-light);
         font-size: fluid(16, 23);
@@ -23,6 +26,8 @@
       font-size: fluid(18, 24);
     }
     .gradient-slider__header {
+      position: relative;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
       flex-direction: row;
