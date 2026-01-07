@@ -66,15 +66,21 @@ export const Sliders = {
             prevEl: el.querySelector(".gradient-slider__controls-button--prev"),
           },
           on: {
-            reachEnd: function () {
+            init: function (this: any) {
               const container = el.querySelector(".gradient-slider__container");
-              if (container) {
+              if (!container) return;
+              if (this.isEnd) {
                 container.classList.add("gradient-slider__container--end");
+              } else {
+                container.classList.remove("gradient-slider__container--end");
               }
             },
-            fromEdge: function () {
+            slideChange: function (this: any) {
               const container = el.querySelector(".gradient-slider__container");
-              if (container) {
+              if (!container) return;
+              if (this.isEnd) {
+                container.classList.add("gradient-slider__container--end");
+              } else {
                 container.classList.remove("gradient-slider__container--end");
               }
             },
