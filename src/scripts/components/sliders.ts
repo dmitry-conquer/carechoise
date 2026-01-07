@@ -23,53 +23,65 @@ export const Sliders = {
       });
     }
 
-    if (document.getElementById("gradient-slider")) {
-      //@ts-ignore
-      const gradientSlider = new Swiper("#gradient-slider", {
-        slidesPerView: 3.55,
-        speed: 800,
-        breakpoints: {
-          0: {
-            slidesPerView: 1.1,
-            spaceBetween: 10,
+    const gradientSliderElements = document.querySelectorAll(".gradient-slider") as NodeListOf<HTMLElement>;
+
+    gradientSliderElements.forEach((el: HTMLElement) => {
+      if (el) {
+        const sliderEl = el.querySelector(".gradient-slider__slider") as HTMLElement;
+        const { perView } = sliderEl.dataset;
+
+        //@ts-ignore
+        const gradientSlider = new Swiper(sliderEl, {
+          slidesPerView: perView ? parseFloat(perView) : 3.55,
+          autoHeight: true,
+          speed: 800,
+          breakpoints: {
+            0: {
+              slidesPerView: 1.1,
+              spaceBetween: 10,
+            },
+            480: {
+              slidesPerView: 1.5,
+              spaceBetween: 20,
+            },
+            576: {
+              slidesPerView: 2.2,
+              spaceBetween: 20,
+            },
+            640: {
+              slidesPerView: 2.5,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: perView ? parseFloat(perView) : 3.55,
+              spaceBetween: 20,
+            },
           },
-          480: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
+          pagination: {
+            el: el.querySelector(".gradient-slider__controls-pagination"),
+            clickable: true,
           },
-          576: {
-            slidesPerView: 2.2,
-            spaceBetween: 20,
+          navigation: {
+            nextEl: el.querySelector(".gradient-slider__controls-button--next"),
+            prevEl: el.querySelector(".gradient-slider__controls-button--prev"),
           },
-          640: {
-            slidesPerView: 2.5,
-            spaceBetween: 20,
+          on: {
+            reachEnd: function () {
+              const container = el.querySelector(".gradient-slider__container");
+              if (container) {
+                container.classList.add("gradient-slider__container--end");
+              }
+            },
+            fromEdge: function () {
+              const container = el.querySelector(".gradient-slider__container");
+              if (container) {
+                container.classList.remove("gradient-slider__container--end");
+              }
+            },
           },
-          768: {
-            slidesPerView: 3.55,
-            spaceBetween: 20,
-          },
-        },
-        navigation: {
-          nextEl: ".gradient-slider__button--next",
-          prevEl: ".gradient-slider__button--prev",
-        },
-        on: {
-          reachEnd: function () {
-            const container = document.querySelector(".gradient-slider__container");
-            if (container) {
-              container.classList.add("gradient-slider__container--end");
-            }
-          },
-          fromEdge: function () {
-            const container = document.querySelector(".gradient-slider__container");
-            if (container) {
-              container.classList.remove("gradient-slider__container--end");
-            }
-          },
-        },
-      });
-    }
+        });
+      }
+    });
 
     if (document.getElementById("base-slider")) {
       //@ts-ignore
